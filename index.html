@@ -4,45 +4,55 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gonzalo Vargas | Opinión y descargos</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans" rel="stylesheet">
-
+    <title> SALUN | Sal ahora y no esperes</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
     <style type="text/css">
+
+
+      .main{
+        max-width: 800px;
+        margin: auto;
+      }
+      .top-bar h1{
+        font-family: 'Bungee', cursive;
+        font-size: 48px;
+        text-align: center;
+      }
+      .top-bar h5{
+        font-family: 'Lato', sans-serif;
+        font-size: 24px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      .info p{
+        font-size: 20px;
+
+      }
+
+
+
+      p, li{
+        font-family: 'Lato', sans-serif;
+      }
+
       body{
-        background-color:#ECF0F1;
-        background-image: linear-gradient(white 2px, transparent 2px),
-        linear-gradient(90deg, white 2px, transparent 2px),
-        linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
-        background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
-        background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
-        }
+        background-color: gray;
+        background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
+        background-size: 100px 50px;
+      }
+
+      .main{
+        background-color: white;
+        padding: 20px;
+      }
+
+      .mapa{
+        height: 400px;
+        background-color: gray;
+      }
 
 
-        h1{
-          text-align: center;
-          font-size: 32px;
-          color: #E74C3C;
-          font-family: 'Merriweather', serif;
-
-        }
-        p , h5{
-          text-align: justify;
-          padding: 4px;
-          font-family: 'Open Sans', sans-serif;
-          font-size: 18px;
-          color: #2C3E50
-        }
-
-        p:hover{
-          color: black;
-        }
-        #main{
-          max-width: 600px;
-          margin: auto;
-          padding-top: 60px;
-        }
 
 
 
@@ -50,17 +60,126 @@
   </head>
 
   <body>
-    <div id="main">
-      <h1>Descargos a la FIFA</h1>
-      <p>Sería muy raro que alguien visite esta página, a menos que sea un bot. Por eso voy a contar que siendo las 19:06 del 23-11-16 todavía no se si puedo dar un examen mañana a las 8:45. </p>
+    <div class="main">
+      <div class="top-bar">
+        <h1>salUN</h1>
+        <h5>sal ahora y no se te pasará la micro</h5>
+      </div>
 
-      <p>Bueno. tantos días tan buenos, faltó agradecer ..pero bue. Cada día tiene su afán. Hoy aprender tráfico para el próximo semestre pasar con mejor nota...</p>
-      
-      <p>Finalmente sí me dejó hacer el examen, pero no me lo recibió...Si hubiera subido esa tarea estaría con otro ramo más... Y el viernes tendré que hacer otro examen... Ahora si dependo de mi. Un 3,6 necesito, no es gran cosa..pero voy por el 6.</p>
-      
-      <p>Segunda vez que aplico la legendaria técnica de dormir 2 horas..voy  repetir la hazaña. Si funciona la técnica va en un libro de como tener más creditos que nunca y estar en 2 proyecyos...y reprobar tráfico por no subir bien una tarea.</p>
+      <div class="info">
+        <p>Te encuentras a 6 minutos caminando del paradero PC910.</p>
 
-      <h5 style="text-align: right;"><b>Gonzalo Vargas</b></h5>
+        <p>Los recorridos recomendados son:</p>
+
+        <ul>
+          <li>C14</li>
+          <li>C10e</li>
+        </ul>
+
+        <p>Para tomar el bus FF1234 del recorrido C14 debes salir en 2 minutos.</p>        
+      </div>
+
+      <div id="resultados"></div>
+
+      
+
+      <div class="mapa" id="map">
+      </div>
+
+
+      AIzaSyBnMFqnodqpTa-rBL90dhOsBk3iEBMgGnU <br>
+      <script type="text/javascript">
+
+          
+
+
+
+      </script>
+      
+
+
     </div>
+
+
+    <script type="text/javascript">      
+
+      var map;
+
+      function initMap() {
+        var miUbicacion = {lat: -33.338085, lng: -70.549881};
+        var paradero = {lat: -33.336886, lng: -70.545977};
+        var image = 'icon.png';
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: miUbicacion,
+          zoom: 17
+        });
+        var marker = new google.maps.Marker({
+          position: miUbicacion,
+          map: map,
+          icon: image,
+          title: 'Donde estás ahora'
+        });
+        var marker2 = new google.maps.Marker({
+          position: paradero,
+          map: map,
+          icon: image,
+          draggable:true,
+          title: 'El paradero'
+        });
+
+
+        //distancia
+        //var origin1 = {lat: 55.930, lng: -3.118};
+        //var origin2 = 'Greenwich, England';
+        //var destinationA = 'Stockholm, Sweden';
+        //var destinationB = {lat: 50.087, lng: 14.421};
+        var service = new google.maps.DistanceMatrixService;
+        service.getDistanceMatrix({
+          origins: [miUbicacion], //se pueden poner varios en la lista
+          destinations: [paradero],
+          travelMode: google.maps.TravelMode.WALKING,
+          unitSystem: google.maps.UnitSystem.METRIC,
+        }, function(response, status) {
+          if (status == google.maps.DistanceMatrixStatus.OK) {
+            //alert('Error was: ' + status);
+
+            var resultado = response;
+            console.log(resultado);
+            document.getElementById('resultados').innerHTML += resultado[1].origin_addresses[0];
+          }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+      }
+    </script>
+
+
+    <script type="text/javascript">
+      
+      
+
+
+    </script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnMFqnodqpTa-rBL90dhOsBk3iEBMgGnU&callback=initMap">
+    </script>
+
+
+
+
+
+
   </body>
 </html>
