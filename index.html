@@ -30,8 +30,6 @@
 
       }
 
-
-
       p, li{
         font-family: 'Lato', sans-serif;
       }
@@ -52,6 +50,10 @@
         background-color: gray;
       }
 
+      .firma a{
+        text-decoration: none;
+      }
+
 
 
 
@@ -67,7 +69,7 @@
       </div>
 
       <div class="info">
-        <p>Te encuentras a 6 minutos caminando del paradero PC910.</p>
+        <p>Te encuentras a <span id="wd"></span> segundos caminando del paradero PC910.</p>
 
         <p>Los recorridos recomendados son:</p>
 
@@ -87,16 +89,8 @@
       </div>
 
 
-      AIzaSyBnMFqnodqpTa-rBL90dhOsBk3iEBMgGnU <br>
-      <script type="text/javascript">
-
-          
-
-
-
-      </script>
-      
-
+      <!--AIzaSyBnMFqnodqpTa-rBL90dhOsBk3iEBMgGnU-->
+      <p class="firma">Desarrollado con API de Google Maps y Transantiago | <a href="mailto:grvargas@uc.cl">Gonzalo Vargas Ludwig</a></p>
 
     </div>
 
@@ -146,7 +140,7 @@
 
             var resultado = response;
             console.log(resultado);
-            document.getElementById('resultados').innerHTML += resultado[1].origin_addresses[0];
+            document.getElementById('wd').innerHTML += response.rows[0].elements[0].duration.value;
           }
         });
 
