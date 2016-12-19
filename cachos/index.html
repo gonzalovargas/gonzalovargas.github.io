@@ -1,0 +1,130 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Cachos</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+            #dados span{
+              padding: 17px 30px;
+              font-size: 45px;
+              border: solid;
+            }
+            #dados{
+              margin: auto;
+              display: block;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div style="text-align: center;">
+            <h3>Cachos</h3>
+            <br>
+
+            <button type="button" onclick="mostrar()">Mostrar</button>
+
+          <div id="dados">
+            <br>
+            <br>
+            <span id="d1">1</span>
+            <span id="d2">1</span>
+            <span id="d3">1</span>
+            <span id="d4">1</span>
+            <span id="d5">1</span>
+          </div>
+          <br>
+          <br>
+          <button type="button" onclick="tirar()">Tirar dados</button>
+          <br>
+          <br>
+          <button type="button" onclick="unomenos()">-1</button>
+          <button type="button" onclick="unomas()">+1</button>
+          
+        </div>
+
+    <script type="text/javascript">
+      console.log(Math.floor((Math.random() * 6) + 1));
+      
+
+      function tirar(){
+        document.getElementById('d1').innerHTML = Math.floor((Math.random() * 6) + 1);
+        document.getElementById('d2').innerHTML = Math.floor((Math.random() * 6) + 1);
+        document.getElementById('d3').innerHTML = Math.floor((Math.random() * 6) + 1);
+        document.getElementById('d4').innerHTML = Math.floor((Math.random() * 6) + 1);
+        document.getElementById('d5').innerHTML = Math.floor((Math.random() * 6) + 1);
+      }
+      tirar();
+
+      var ndados = 5
+
+      function unomenos(){
+        switch(ndados){
+          case 5:
+            document.getElementById('d5').style.display = 'None';
+            ndados = 4
+            break;
+          case 4:
+            document.getElementById('d4').style.display = 'None';
+            ndados = 3
+            break;
+          case 3:
+            document.getElementById('d3').style.display = 'None';
+            ndados = 2
+            break;
+          case 2:
+            document.getElementById('d2').style.display = 'None';
+            ndados = 1
+            break;
+        }
+      }
+      function unomas(){
+        switch(ndados){
+          case 4:
+            document.getElementById('d5').style.display = 'inline';
+            ndados = 5
+            break;
+          case 3:
+            document.getElementById('d4').style.display = 'inline';
+            ndados = 4
+            break;
+          case 2:
+            document.getElementById('d3').style.display = 'inline';
+            ndados = 3
+            break;
+          case 1:
+            document.getElementById('d2').style.display = 'inline';
+            ndados = 2
+            break;
+        }
+      }
+      function mostrar(){
+        if (document.getElementById('dados').style.display == 'none'){
+          document.getElementById('dados').style.display = 'block';
+        } else {
+          document.getElementById('dados').style.display = 'none';
+        }
+      }
+    </script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>
