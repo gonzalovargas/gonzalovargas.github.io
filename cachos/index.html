@@ -15,15 +15,30 @@
             body {
                 padding-top: 50px;
                 padding-bottom: 20px;
+                background-color: #29562F;
             }
-            #dados span{
-              padding: 17px 30px;
-              font-size: 45px;
+            #dados img{
               border: solid;
             }
             #dados{
               margin: auto;
               display: block;
+            }
+            h1, h2, h3, h4, h5{
+              color: white;
+            }
+            .button{
+              background-color: white; /* Green */
+              border: none;
+              color: black;
+              padding: 15px 32px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+            }
+            .button:hover{
+              background-color: silver;
             }
 
         </style>
@@ -34,40 +49,42 @@
         <![endif]-->
 
         <div style="text-align: center;">
-            <h3>Cachos</h3>
+            <h3>CACHOS</h3>
             <br>
 
-            <button type="button" onclick="mostrar()">Mostrar</button>
+            <button type="button" class="button" onclick="mostrar()">Mostrar</button>
 
           <div id="dados">
             <br>
-            <br>
-            <span id="d1">1</span>
-            <span id="d2">1</span>
-            <span id="d3">1</span>
-            <span id="d4">1</span>
-            <span id="d5">1</span>
+            <img id="d1" src="img/1.png">
+            <img id="d2" src="img/2.png">
+            <img id="d3" src="img/3.png">
+            <img id="d4" src="img/4.png">
+            <img id="d5" src="img/5.png">
           </div>
           <br>
           <br>
-          <button type="button" onclick="tirar()">Tirar dados</button>
+          <button type="button" class="button" onclick="tirar()">Tirar dados</button>
           <br>
           <br>
-          <button type="button" onclick="unomenos()">-1</button>
-          <button type="button" onclick="unomas()">+1</button>
+          <button type="button" class="button" onclick="unomenos()">-1</button>
+          <button type="button" class="button" onclick="unomas()">+1</button>
+          <h3>Número de tiradas: <span id="contador"></span></h3>
           
         </div>
 
     <script type="text/javascript">
-      console.log(Math.floor((Math.random() * 6) + 1));
-      
+
+      var contador = 1;
 
       function tirar(){
-        document.getElementById('d1').innerHTML = Math.floor((Math.random() * 6) + 1);
-        document.getElementById('d2').innerHTML = Math.floor((Math.random() * 6) + 1);
-        document.getElementById('d3').innerHTML = Math.floor((Math.random() * 6) + 1);
-        document.getElementById('d4').innerHTML = Math.floor((Math.random() * 6) + 1);
-        document.getElementById('d5').innerHTML = Math.floor((Math.random() * 6) + 1);
+        document.getElementById('d1').src = 'img/' + Math.floor((Math.random() * 6) + 1) + '.png';
+        document.getElementById('d2').src = 'img/' + Math.floor((Math.random() * 6) + 1) + '.png';
+        document.getElementById('d3').src = 'img/' + Math.floor((Math.random() * 6) + 1) + '.png';
+        document.getElementById('d4').src = 'img/' + Math.floor((Math.random() * 6) + 1) + '.png';
+        document.getElementById('d5').src = 'img/' + Math.floor((Math.random() * 6) + 1) + '.png';
+        document.getElementById('contador').innerHTML = contador;
+        contador += 1;
       }
       tirar();
 
@@ -116,8 +133,10 @@
       function mostrar(){
         if (document.getElementById('dados').style.display == 'none'){
           document.getElementById('dados').style.display = 'block';
+          document.body.style.backgroundColor = "#29562F";
         } else {
           document.getElementById('dados').style.display = 'none';
+          document.body.style.backgroundColor = "#562935";
         }
       }
     </script>
