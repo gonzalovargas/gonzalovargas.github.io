@@ -13,7 +13,9 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <style>
             body {
+
                 background-color: #29562F;
+
             }
             #dados img{
               /*border: solid;*/
@@ -25,22 +27,30 @@
               margin: auto;
               display: block;
             }
-            h1, h2, h3, h4, h5{
+            h1, h3{
               color: white;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+              margin-top: 30px;
+              margin-bottom: 0px;
+              text-transform: uppercase;
             }
             .button{
               background-color: white; /* Green */
               border: none;
               color: black;
-              padding: 15px 32px;
+              padding: 15px 20px;
               text-align: center;
               text-decoration: none;
               display: inline-block;
               font-size: 16px;
+              margin-top: 15px;
+              margin-bottom: 15px;
+              text-transform: uppercase;
             }
             .button:hover{
               background-color: silver;
             }
+
 
         </style>
     </head>
@@ -50,23 +60,17 @@
         <![endif]-->
 
         <div style="text-align: center;">
-            <h3>CACHOS</h3>
-            <br>
-
+            <h1>CACHOS</h1>
             <button type="button" class="button" onclick="mostrar()">Mostrar</button>
-
-          <div id="dados">
             <br>
+          <div id="dados">
             <img id="d1" src="img/1.png">
             <img id="d2" src="img/2.png">
             <img id="d3" src="img/3.png">
             <img id="d4" src="img/4.png">
             <img id="d5" src="img/5.png">
           </div>
-          <br>
-          <br>
           <button type="button" class="button" onclick="tirar()">Tirar dados</button>
-          <br>
           <br>
           <button type="button" class="button" onclick="unomenos()">-1</button>
           <button type="button" class="button" onclick="unomas()">+1</button>
@@ -91,25 +95,25 @@
       }
       tirar();
 
-      var ndados = 5
+      var ndados = 5;
 
       function unomenos(){
         switch(ndados){
           case 5:
             document.getElementById('d5').style.display = 'None';
-            ndados = 4
+            ndados = 4;
             break;
           case 4:
             document.getElementById('d4').style.display = 'None';
-            ndados = 3
+            ndados = 3;
             break;
           case 3:
             document.getElementById('d3').style.display = 'None';
-            ndados = 2
+            ndados = 2;
             break;
           case 2:
             document.getElementById('d2').style.display = 'None';
-            ndados = 1
+            ndados = 1;
             break;
         }
       }
@@ -117,19 +121,19 @@
         switch(ndados){
           case 4:
             document.getElementById('d5').style.display = 'inline';
-            ndados = 5
+            ndados = 5;
             break;
           case 3:
             document.getElementById('d4').style.display = 'inline';
-            ndados = 4
+            ndados = 4;
             break;
           case 2:
             document.getElementById('d3').style.display = 'inline';
-            ndados = 3
+            ndados = 3;
             break;
           case 1:
             document.getElementById('d2').style.display = 'inline';
-            ndados = 2
+            ndados = 2;
             break;
         }
       }
@@ -139,7 +143,7 @@
           document.body.style.backgroundColor = "#29562F";
         } else {
           document.getElementById('dados').style.display = 'none';
-          document.body.style.backgroundColor = "#562935";
+          document.body.style.backgroundColor = "#463963";
         }
       }
     </script>
