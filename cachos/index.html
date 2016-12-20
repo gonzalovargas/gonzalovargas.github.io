@@ -13,14 +13,13 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <style>
             body {
-                padding-top: 50px;
-                padding-bottom: 20px;
                 background-color: #29562F;
             }
             #dados img{
-              border: solid;
+              /*border: solid;*/
               margin: 3px;
               max-width: 90px;
+              border-radius: 6px;
             }
             #dados{
               margin: auto;
@@ -87,6 +86,8 @@
         document.getElementById('d5').src = 'img/' + Math.floor((Math.random() * 6) + 1) + '.png';
         document.getElementById('contador').innerHTML = contador;
         contador += 1;
+        //document.body.style.backgroundColor = "#A22D4C";
+        //setTimeout(function(){ document.body.style.backgroundColor = "#29562F"; }, 800);
       }
       tirar();
 
