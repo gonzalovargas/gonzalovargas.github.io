@@ -1,0 +1,535 @@
+/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+
+a {
+  background-color: transparent;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+
+h1 {
+  margin: .67em 0;
+  font-size: 2em;
+}
+
+img {
+  border: 0;
+}
+
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+@media print {
+  *,
+  *:before,
+  *:after {
+    color: #000 !important;
+    text-shadow: none !important;
+    background: transparent !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  .navbar {
+    display: none;
+  }
+  .btn > .caret,
+  .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+  .label {
+    border: 1px solid #000;
+  }
+  .table {
+    border-collapse: collapse !important;
+  }
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #23527c;
+  text-decoration: underline;
+}
+a:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+img {
+  vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+h1,
+.h1 {
+  font-size: 36px;
+}
+h2,
+.h2 {
+  font-size: 30px;
+}
+h3,
+.h3 {
+  font-size: 24px;
+}
+h4,
+.h4 {
+  font-size: 18px;
+}
+h5,
+.h5 {
+  font-size: 14px;
+}
+h6,
+.h6 {
+  font-size: 12px;
+}
+p {
+  margin: 0 0 10px;
+}
+
+
+
+
+/*///////////////////////////////*/
+
+
+
+
+b {
+    font-weight: bold;
+}
+
+body{
+    width: 100%;
+    overflow-x: hidden;
+    
+}
+
+.social a{
+    color: white;
+    font-size: 25px;
+    padding-right: 10px;
+}
+.social a:hover{
+    color: #2D7688;
+}
+
+@font-face {
+    font-family: 'edo';
+    src: url('fonts/edo.ttf');
+}
+@font-face {
+    font-family: 'mensch';
+    src: url('fonts/mensch.ttf');
+}
+@font-face {
+    font-family: 'Coves';
+    src: url('fonts/CovesLight.otf');
+}
+
+.portada{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    
+}
+
+.portada div{
+    overflow: hidden;
+    
+}
+
+
+.portada > div{
+    /*filtro*/
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.portada div video{
+    z-index: -1;
+    position: fixed;
+    top: 50%; left: 50%;
+    z-index: -1;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+}
+
+.social{
+    position: absolute;
+    width: 100%;
+    text-align: right;
+    padding-right: 20px;
+    margin-top: 20px;
+    z-index: 333;
+}
+
+.centro-portada{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.centro-portada img{
+    max-height: 200px;
+    margin-top: 25vh;
+    max-width: 80%;
+}
+.centro-portada h1{
+    font-family: edo;
+    font-size: 50px;
+    color: white;
+    margin-bottom: 5%;
+}
+
+.centro-portada a{
+    margin: 0px;
+    font-family: mensch;
+    font-size: 30px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 15px;
+    color: #043856;
+}
+.centro-portada a:hover{
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #043856;
+    text-decoration: none;
+}
+
+.menu{
+    position: relative;
+    top: -50px;
+    height: 50px;
+    margin-bottom: -50px;
+    overflow: hidden;
+    color: white;
+    font-family: mensch;
+}
+
+
+.fijo{
+    position: fixed;
+    top: 0;
+    width:inherit;
+
+}
+
+
+.menu a{
+    color: white;
+    width: 33.33%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    display:block;
+    font-size: 20px;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+.menu a:hover{
+    color: white;
+}
+
+.menu a h2{
+    margin-top: 12px;
+}
+
+#pilares{
+    width: 100%;
+    clear: both;
+}
+
+#pilares div{
+    width: 50%;
+    height: 100%;
+    float: left;
+    background-repeat:no-repeat;
+    background-position: center center;
+    text-align: center;
+}
+
+#pilares div div h1{
+    font-family: edo;
+    color: #043856;
+    margin-top: 0px;
+    font-size: 40px;
+    padding-top: 75px;
+}
+
+#pilares div div p{
+    font-family: edo;
+    color: #043856;
+    font-size: 22px;
+    padding: 15px;
+    max-width: 480px;
+    margin: auto;
+    font-family: coves;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+
+}
+
+#pilares div div:hover p{
+    background-color: rgba(255,255,255,0.8);
+}
+
+
+
+#pilares div div{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.6);
+    z-index: 2000;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+#pilares div div:hover{
+    background-color: rgba(255,255,255,0.2);
+}
+
+#principios{
+    width: 100%;
+    height: 250px;
+    clear: both;
+    overflow: hidden;
+    
+}
+#principios a{
+    height: 250px;
+    width: 33.33%;
+    background-repeat:no-repeat;
+    background-position: center center;
+    float: left;
+    text-align: center;
+    display:block;
+}
+
+#principios a div{
+    height: 100%;
+    width: 100%;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+#principios a div:hover{
+    background-color: rgba(255,255,255,0.4);
+}
+
+
+#principios a div h1{
+    font-family: edo;
+    color: white;
+    margin: 0px;
+    font-size: 39px;
+    padding-top: 80px;
+}
+
+#contacto{
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px; 
+    background-color: #043856;
+    text-align:center;
+    clear: both;
+}
+
+#contacto a{
+    color: white;
+    font-size: 25px;
+    padding: 10px;
+}
+#contacto a:hover{
+    color: #2D7688;
+}
+#contacto img{
+    max-height: 200px;
+    max-width: 30%;
+}
+
+
+@media(max-width: 767px){
+    #principios{
+        width: 100%;
+        height: 600px;
+    }
+    #principios a{
+        width: 100%;
+        height: 33.333%;
+    }
+
+
+    #pilares div{
+        width: 100%;
+        height: 50%;
+    }
+
+    #contacto{
+    }
+
+    #contacto a{
+        padding: 5px;
+        font-size: 20px;
+    }
+    .menu a h2{
+        margin-top: 18px;
+        font-size: 16px;
+    }
+    #pilares{
+        height: auto;
+}
+
+}
+
+@media(min-width: 768px){
+
+    #pilares{
+        height: 590px;
+}
+
+}
