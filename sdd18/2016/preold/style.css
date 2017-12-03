@@ -1,0 +1,309 @@
+b {
+    font-weight: bold;
+}
+
+body{
+    width: 100%;
+    overflow-x: hidden;
+    
+}
+
+.social a{
+    color: white;
+    font-size: 25px;
+    padding-right: 10px;
+}
+.social a:hover{
+    color: #2D7688;
+}
+
+@font-face {
+    font-family: 'edo';
+    src: url('edo.ttf');
+}
+@font-face {
+    font-family: 'mensch';
+    src: url('mensch.ttf');
+}
+@font-face {
+    font-family: 'Coves';
+    src: url('CovesLight.otf');
+}
+
+.portada{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    
+}
+
+.portada div{
+    overflow: hidden;
+    
+}
+
+
+.portada > div{
+    /*filtro*/
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.portada div video{
+    z-index: -1;
+    position: fixed;
+    top: 50%; left: 50%;
+    z-index: -1;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+}
+
+.social{
+    position: absolute;
+    width: 100%;
+    text-align: right;
+    padding-right: 20px;
+    margin-top: 20px;
+    z-index: 333;
+}
+
+.centro-portada{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.centro-portada img{
+    max-height: 200px;
+    margin-top: 25vh;
+    max-width: 80%;
+}
+.centro-portada h1{
+    font-family: edo;
+    font-size: 50px;
+    color: white;
+    margin-bottom: 5%;
+}
+
+.centro-portada a{
+    margin: 0px;
+    font-family: mensch;
+    font-size: 30px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 15px;
+    color: #043856;
+}
+.centro-portada a:hover{
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #043856;
+    text-decoration: none;
+}
+
+.menu{
+    position: relative;
+    top: -50px;
+    height: 50px;
+    margin-bottom: -50px;
+    overflow: hidden;
+    color: white;
+    font-family: mensch;
+}
+
+
+.fijo{
+    position: fixed;
+    top: 0;
+    width:inherit;
+
+}
+
+
+.menu a{
+    color: white;
+    width: 33.33%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    display:block;
+    font-size: 20px;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+.menu a:hover{
+    color: white;
+}
+
+.menu a h2{
+    margin-top: 12px;
+}
+
+#pilares{
+    width: 100%;
+    clear: both;
+}
+
+#pilares div{
+    width: 50%;
+    height: 100%;
+    float: left;
+    background-repeat:no-repeat;
+    background-position: center center;
+    text-align: center;
+}
+
+#pilares div div h1{
+    font-family: edo;
+    color: #043856;
+    margin-top: 0px;
+    font-size: 40px;
+    padding-top: 75px;
+}
+
+#pilares div div p{
+    font-family: edo;
+    color: #043856;
+    font-size: 22px;
+    padding: 15px;
+    max-width: 480px;
+    margin: auto;
+    font-family: coves;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+
+}
+
+#pilares div div:hover p{
+    background-color: rgba(255,255,255,0.8);
+}
+
+
+
+#pilares div div{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.6);
+    z-index: 2000;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+#pilares div div:hover{
+    background-color: rgba(255,255,255,0.2);
+}
+
+#principios{
+    width: 100%;
+    height: 250px;
+    clear: both;
+    overflow: hidden;
+    
+}
+#principios a{
+    height: 250px;
+    width: 33.33%;
+    background-repeat:no-repeat;
+    background-position: center center;
+    float: left;
+    text-align: center;
+    display:block;
+}
+
+#principios a div{
+    height: 100%;
+    width: 100%;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+#principios a div:hover{
+    background-color: rgba(255,255,255,0.4);
+}
+
+
+#principios a div h1{
+    font-family: edo;
+    color: white;
+    margin: 0px;
+    font-size: 39px;
+    padding-top: 80px;
+}
+
+#contacto{
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px; 
+    background-color: #043856;
+    text-align:center;
+    clear: both;
+}
+
+#contacto a{
+    color: white;
+    font-size: 25px;
+    padding: 10px;
+}
+#contacto a:hover{
+    color: #2D7688;
+}
+#contacto img{
+    max-height: 200px;
+    max-width: 30%;
+}
+
+
+@media(max-width: 767px){
+    #principios{
+        width: 100%;
+        height: 600px;
+    }
+    #principios a{
+        width: 100%;
+        height: 33.333%;
+    }
+
+
+    #pilares div{
+        width: 100%;
+        height: 50%;
+    }
+
+    #contacto{
+    }
+
+    #contacto a{
+        padding: 5px;
+        font-size: 20px;
+    }
+    .menu a h2{
+        margin-top: 18px;
+        font-size: 16px;
+    }
+    #pilares{
+        height: auto;
+}
+
+}
+
+@media(min-width: 768px){
+
+    #pilares{
+        height: 590px;
+}
+
+}

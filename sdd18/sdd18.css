@@ -1,0 +1,504 @@
+
+
+td, th{
+  text-align: right;
+}
+
+td:first-child, th:first-child{
+  text-align: left;
+}
+
+
+#owl-cs .item{
+  margin: 3px;
+}
+#owl-cs .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+#lista:focus { outline: none; }
+
+body{
+  font-family: 'Lato', sans-serif;
+}
+
+#img-portada{
+  width: 100%;
+  text-align: center;
+}
+
+#nosolo{
+  max-width: 600px; width: 60%; padding-top: 20px;
+}
+
+#juntos{
+  max-width: 600px;
+  width: 80%;
+  padding-top: 80px;
+}
+
+#logo-portada{
+  max-width: 300px; width: 60%; padding-top: 70px
+}
+
+
+
+.fotos-lista{
+    max-width: 960px;
+    margin: auto;
+}
+
+
+.foto-lista{
+    width: 320px;
+    height: 320px;
+    float: left;
+    padding: 10px;
+    overflow: hidden;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    /*cursor:pointer;*/
+}
+
+@media(min-width:769px) and (max-width:959px){
+    .fotos-lista{
+        max-width: 100%;
+    }
+    .foto-lista{
+        width: 33.33vw;
+        height: 33.33vw;
+        padding: 10px;
+    }
+}
+
+@media(max-width:768px){
+    .fotos-lista{
+        width: 100%;
+    }
+    .foto-lista{
+        width: 50vw;
+        height: 50vw;
+        padding: 5px;
+    }
+}
+
+
+
+
+
+.fotos-territoriales{
+    max-width: 1350px;
+    margin: auto;
+}
+
+#foto-territorial, #foto-feuc{
+  max-width: 350px;
+  width: 100%;
+  margin: auto;
+  display: block;
+  padding-top: 10px;
+}
+#texto-territorial{
+  text-align: justify;
+  font-size: 14px;
+}
+
+.terri{
+    width: 270px;
+    height: 270px;
+    float: left;
+    padding: 5px;
+    overflow: hidden;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    cursor:pointer;
+}
+
+.terri img{
+  width: 100%;
+  height: auto;
+}
+
+.foto-lista img{
+  width: 100%;
+  height: auto;
+  background-color: white;
+}
+
+.foto-lista img:hover{
+  opacity: 0.75;
+  filter: alpha(opacity=75);
+}
+
+.terri img:hover{
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+}
+
+@media(min-width:1050px) and (max-width:1349px){
+    .fotos-territoriales{
+        max-width: 1050px;
+    }
+    .terri{
+        width: 350px;
+        height: 350px;
+        padding: 10px;
+    }
+}
+
+@media(min-width:769px) and (max-width:1049px){
+    .fotos-territoriales{
+        max-width: 100%;
+    }
+    .terri{
+        width: 33.33vw;
+        height: 33.33vw;
+        padding: 10px;
+    }
+}
+
+@media(max-width:768px){
+    .fotos-territoriales{
+        width: 100%;
+    }
+    .terri{
+        width: 50vw;
+        height: 50vw;
+    }
+}
+
+.modal-content  {
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+}
+
+
+.lvpe{
+  display: block;
+  float: left;
+  width: 50%;
+  height: 400px;
+  background-color: silver;
+  background-position: 50% 50%;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.lvpegrad{
+  cursor:pointer;
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100&1+0,0+100;Blue+to+Transparent */
+background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#007db9e8',GradientType=0 ); /* IE6-9 */
+}
+.lvpegrad:hover{
+  background-color: rgba(255,255,255,0.3);
+}
+
+.lvpe h2{
+  text-align: left;
+  margin-left: 20px;
+  color: white;
+  margin-top: 0px;
+}
+
+.videocolumna{
+  padding-bottom: 15px;
+}
+
+.facebook-responsive {
+    overflow:hidden;
+    padding-bottom:100%;
+    position:relative;
+    height:0;
+}
+.facebook-responsive iframe {
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+@font-face {
+    font-family: 'edo';
+    src: url('fonts/edo.ttf');
+}
+
+h2{
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+}
+
+h3{
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    margin-top: 5px;
+
+}
+
+.fondo-lista{
+    background-color: gray;
+    background-image: url(img/cons.jpg);
+    background-size: cover;
+}
+
+.fondo-proyectos{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.fondo-cs{
+    background-color:  #043856;
+}
+
+.fondo-territoriales{
+    background-image: url(img/rojo.jpg);
+    background-size: cover;
+    width: 100%;
+    display: block;
+}
+
+#documentos{
+    background-color: white;
+}
+
+
+#portada{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+}
+
+#fondo-portada{
+    height: inherit;
+    width: inherit;
+    position: fixed;
+    z-index: -100;
+    background-image: url(lista.jpg);
+    /*background-repeat: ;*/
+    background-position: center center;
+    background-size: cover;
+}
+
+
+#portada{
+    color: white;
+}
+
+#portada img{
+    z-index: 100;
+}
+
+
+.fotos{
+    background-image: url(img/rojo.jpg); background-size: cover;
+}
+
+
+
+.menu{
+    text-align: center;
+    position: absolute;
+    height: 50px;
+    width: inherit;
+    bottom: 0;
+    background-color: #E01E25;
+    z-index: 123;
+    /*overflow: hidden;*/
+}
+
+.menu a{
+    margin: 0px;
+    color: white;
+    display: block;
+    height: 50px;
+    width: 33.33%;
+    float: left;
+    font-family: 'Lato', sans-serif;
+    font-size: 32px;
+    overflow: hidden;
+    padding-top: 7px;
+
+}
+.menu-top{
+    position: fixed;
+    top: 0;
+    width:inherit;
+}
+
+
+#lista{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#lista h2{
+    padding-bottom: 30px;
+    color: white;
+}
+#lista h3{
+    color: black;
+}
+
+#proyectos{
+    padding-top: 30px;
+    color: black;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+#proyectos h2{
+    padding-bottom: 20px;
+
+}
+
+
+#proyectos-lista, #proyectos-cs{
+    text-align: center;
+
+}
+#proyectos-lista div, #proyectos-cs div{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#proyectos-lista h5, #proyectos-cs h5{
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+}
+
+#proyectos-lista p, #proyectos-cs p{
+    text-align: justify;
+    font-size: 16px;
+    font-family: 'Roboto';
+}
+
+
+#cs{
+    padding-top: 75px;
+    color: white;
+    padding-bottom: 75px;
+    text-align: center;
+}
+#cs h2{
+    margin-top: 0px;
+    padding-bottom: 30px;
+}
+#proyectos-cs{
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+
+
+#territoriales{
+    padding-top: 75px;
+}
+
+#territoriales h2{
+    padding-bottom: 30px;
+    color: white;
+}
+
+#territoriales div{
+
+}
+
+
+#territoriales img{
+    margin-bottom: 20px;
+}
+
+#territoriales a.pr img:hover{
+
+        opacity: 0.65;
+        filter: alpha(opacity=65);}
+
+#documentos a h3{
+    text-align: center;
+    font-size: 36px;
+    padding-top: 50px;
+    padding-bottom: 45px;
+    color: white;
+    overflow: hidden;
+}
+
+
+
+#contacto{
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #043856;
+    text-align:center;
+    clear: both;
+    background-image: url(fondo2.jpg);
+    background-repeat: repeat;
+}
+
+#lista{
+  background-image: url(fondo2.jpg);
+  background-repeat: repeat;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#contacto a{
+    color: white;
+    font-size: 25px;
+    padding: 10px;
+}
+#contacto a:hover{
+    color: #E01E25;
+}
+#contacto img{
+    max-height: 200px;
+    max-width: 30%;
+}
+
+@media(max-width: 767px){
+    #contacto a{
+        padding: 5px;
+        font-size: 20px;
+    }
+    #proyectos-cs{
+        padding-top: 50px;
+        padding-bottom: 30px;
+    }
+    .menu a{
+        font-size: 18px;
+        overflow: hidden;
+        padding-top: 14px;
+
+
+    }
+    #proyectos-lista div, #proyectos-cs div{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .prapa{
+        margin-right: -3px;
+        margin-left: -3px;
+
+    }
+
+    .pr{
+        padding-right: 3px;
+        padding-left: 3px;
+    }
+    #territoriales img{
+    margin-bottom: 6px;
+    }
+
+}
