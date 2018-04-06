@@ -1,25 +1,25 @@
 function bcol(area){
   console.log(area);
   switch (area) {
-    case 'Salud':
+    case 1:
       return '#8dd3c7';
-    case 'Tecnología':
+    case 2:
       return '#ffffb3';
-    case 'Administración y Comercio':
+    case 3:
       return '#bebada';
-    case 'Agropecuaria':
+    case 4:
       return '#fb8072';
-    case 'Arte y Arquitectura':
+    case 5:
       return '#80b1d3';
-    case 'Ciencias Sociales':
+    case 6:
       return '#fdb462'
-    case 'Derecho':
+    case 7:
       return '#b3de69'
-    case 'Educación':
+    case 8:
       return '#fccde5';
-    case 'Ciencias Básicas':
+    case 9:
       return '#d9d9d9';
-    case 'Humanidades':
+    case 10:
       return '#bc80bd';
     default:
       return 'white';
