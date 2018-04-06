@@ -6,7 +6,7 @@ var app = new Vue({
 
       created: function () {
         // `this` points to the vm instance
-        this.$http.get('https://raw.githubusercontent.com/gonzalovargas/gonzalovargas.github.io/master/data.json').then(response => {
+        this.$http.get('https://raw.githubusercontent.com/gonzalovargas/gonzalovargas.github.io/master/mf/data.json').then(response => {
 
             // get body data
             this.info = JSON.parse(response.bodyText);
