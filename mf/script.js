@@ -30,7 +30,8 @@ var app = new Vue({
       el: '#app',
       data: {
         info: null,
-        bcol: "red"
+        bcol: "red",
+        shownumber: 50
       },
 
       created: function () {
@@ -59,8 +60,14 @@ var app = new Vue({
           }
           this.$forceUpdate();
         },
-        
-      },
+        showMore: function(){
+          this.shownumber += 50;
+          for (let k = 0; k < this.shownumber; k++) {
+              this.info[k]["show"] = true;
+            }
+            this.$forceUpdate();
+          } 
+        },
       computed: {
         
         }

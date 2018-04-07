@@ -30,6 +30,7 @@
     @media only screen and (max-width: 600px) {
     .box {
         width: calc(100% - 30px);
+        height: auto;
         }
     }
 
@@ -62,6 +63,7 @@
 <body>
   <h4>Work in progress</h4>
   <div id="app" style="margin: auto; display: block;">
+
     <button v-on:click="filterType">Filter</button>
     <button>CFT</button>
     <button>IP</button>
@@ -70,7 +72,7 @@
     <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
 
     <br>
-    <span v-if="info">
+    <div v-if="info">
 
 
 
@@ -83,7 +85,7 @@
 
       <template v-for="car in info">
         <transition name="fade">
-          <div v-show="car.show == true">
+          <div v-if="car.show == true">
             <div class="box" v-bind:style="{ 'background-color': car.bcolor}">
               <div style="position: absolute; top: 10px; left: 15px;">
                 <span style="font-size: 48px;">{{ car.acreditacion }}</span>
@@ -106,9 +108,9 @@
               </div>
 
 
-              <div style=" position: absolute; bottom: 20px; width: 100%; left:0px;">
+              <div style="width: 100%;">
                 <div style="position: relative; text-align: center; width: 100%;">
-                  <span style="font-size: 14px;"> {{car.dureacion/2}} anos x ${{car.arancel}}</span>
+                  <span style="font-size: 14px;"> {{car.duracion}} anos x ${{car.arancel}}</span>
                 </div>
               </div>
             </div>
@@ -119,11 +121,10 @@
       </template>
 
 
+    </div>
 
-
-
-
-    </span>
+    <br>
+    <button v-on:click="showMore" style="display: block; font-size: 40px;">+</button>
 
   </div>
 
