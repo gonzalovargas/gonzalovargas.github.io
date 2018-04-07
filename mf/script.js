@@ -1,5 +1,4 @@
 function bcol(area){
-  console.log(area);
   switch (area) {
     case 1:
       return '#8dd3c7';
@@ -19,7 +18,7 @@ function bcol(area){
       return '#fccde5';
     case 9:
       return '#d9d9d9';
-    case 10:
+    case 10 :
       return '#bc80bd';
     default:
       return 'white';
@@ -40,12 +39,10 @@ var app = new Vue({
 
             // get body data
             this.info = JSON.parse(response.bodyText);
-
-            console.log(response.body);
-
             for (let k = 0; k < this.info.length; k++) {
               this.info[k]["bcolor"] = bcol(this.info[k].area);
               this.info[k]["id"] = k;
+              this.info[k]["show"] = k<50;
             }        
           }, response => {
             // error callback
@@ -54,7 +51,13 @@ var app = new Vue({
       },
       methods: {
         filterType: function () {
-          console.log("button");
+          console.log("filter");
+          for (let k = 0; k < this.info.length; k++) {
+            if (this.info[k]["tipo"] == 'Universidad'){
+              this.info[k]["show"] = false;
+            }
+          }
+          this.$forceUpdate();
         },
         
       },

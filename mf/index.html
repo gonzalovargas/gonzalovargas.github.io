@@ -4,7 +4,7 @@
 <head>
   <meta charset="ISO-8859-1">
   <title>Mis cartas</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
   <style>
@@ -23,24 +23,45 @@
       box-shadow: 2px 2px 4px #000000;
       border-radius: 3px;
       position: relative;
-      transition: transform .2s; /* Animation */
+      transition: transform .2s;
+      /* Animation */
+    }
+
+    @media only screen and (max-width: 600px) {
+    .box {
+        width: calc(100% - 30px);
+        }
     }
 
     body {
       font-family: sans-serif;
       background-color: white;
     }
-    .button {     
+
+    .button {
       background-color: Transparent;
-      background-repeat:no-repeat;
-      border: none;     
-  }
+      background-repeat: no-repeat;
+      border: none;
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+      transition: opacity .5s;
+    }
+
+    .fade-enter,
+    .fade-leave-to
+    /* .fade-leave-active below version 2.1.8 */
+
+      {
+      opacity: 0;
+    }
   </style>
 </head>
 
 <body>
   <h4>Work in progress</h4>
-  <div id="app">
+  <div id="app" style="margin: auto; display: block;">
     <button v-on:click="filterType">Filter</button>
     <button>CFT</button>
     <button>IP</button>
@@ -55,40 +76,47 @@
 
       <h1>Estas son mis cartas</h1>
 
-      <p>Visualizador de carreras con datos de <a href="http://www.mifuturo.cl">mifuturo.cl</a></p>
+      <p>Visualizador de carreras con datos de
+        <a href="http://www.mifuturo.cl">mifuturo.cl</a>
+      </p>
 
 
-      <div v-for="car in info">
-        <div class="box" v-bind:style="{ 'background-color': car.bcolor}">
+      <template v-for="car in info">
+        <transition name="fade">
+          <div v-show="car.show == true">
+            <div class="box" v-bind:style="{ 'background-color': car.bcolor}">
+              <div style="position: absolute; top: 10px; left: 15px;">
+                <span style="font-size: 48px;">{{ car.acreditacion }}</span>
+              </div>
+              <div style="position: absolute; top: 14px; right: 15px; width: 160px; text-align: right; overflow: visible;">
+                {{ car.institucion }}
+              </div>
 
-          <div style="position: absolute; top: 10px; left: 15px;">
-              <span style="font-size: 48px;">{{ car.acreditacion }}</span>
-          </div>
-          <div style="position: absolute; top: 14px; right: 15px; width: 160px; text-align: right; overflow: hidden;">
-              {{ car.institucion }} 
-          </div>
-
-            <div style="text-align: center;">
-              <h4 style="height: 40px; margin-top: 70px; overflow: hidden;">
+              <div style="text-align: center;">
+                <h4 style="height: 40px; margin-top: 70px; overflow: visible;">
                   {{car.nombre}}
-              </h4>
+                </h4>
 
-              <div style="text-align: center; width: 100%;">
+                <div style="text-align: center; width: 100%;">
                   <h3 style="font-size: 30px;"> ${{car.ingreso}}</h3>
                   <small style="color: white;">{{car.empleabilidad}}% empleabilidad 1er ano</small>
+                </div>
+
+
               </div>
 
 
-            </div>
-            
-
-            <div style=" position: absolute; bottom: 20px; width: 100%; left:0px;" >
-              <div style="position: relative; text-align: center; width: 100%;">
+              <div style=" position: absolute; bottom: 20px; width: 100%; left:0px;">
+                <div style="position: relative; text-align: center; width: 100%;">
                   <span style="font-size: 14px;"> {{car.dureacion/2}} anos x ${{car.arancel}}</span>
+                </div>
               </div>
             </div>
-        </div>
-      </div>
+          </div>
+
+        </transition>
+
+      </template>
 
 
 
