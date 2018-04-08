@@ -31,7 +31,7 @@ var app = new Vue({
   data: {
     info: null,
     bcol: "red",
-    shownumber: 1000,
+    shownumber: 72,
     showU: true,
     showCFT: true,
     showIP: true,
