@@ -100,8 +100,11 @@
                 </h4>
 
                 <div style="text-align: center; width: 100%;">
-                  <h3 style="font-size: 30px;"> ${{car.ingreso}}</h3>
-                  <small style="color: white;">{{car.empleabilidad}}% empleabilidad 1er ano</small>
+                  <h3 style="font-size: 30px;"> {{car.ingreso | addpoints}}</h3>
+                  <small>{{ car.retencion }} % retencion primer ano</small>
+                  <br>
+
+                  <small style="color: white;">{{car.empleabilidad | pointtocomma }}% empleabilidad 1er ano</small>
                 </div>
 
 
@@ -110,7 +113,7 @@
 
               <div style="width: 100%;">
                 <div style="position: relative; text-align: center; width: 100%;">
-                  <span style="font-size: 14px;"> {{car.duracion}} anos x ${{car.arancel}}</span>
+                  <span style="font-size: 14px;"> {{car.duracion | pointtocomma }} anos x {{car.arancel | addpoints}}</span>
                 </div>
               </div>
             </div>
@@ -120,6 +123,13 @@
 
       </template>
 
+
+    </div>
+    <div v-else>
+      <div style="width:100%; text-align: center;">
+        <h1>Cargando</h1>
+
+      </div>
 
     </div>
 
