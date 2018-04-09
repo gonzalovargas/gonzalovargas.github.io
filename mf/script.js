@@ -25,16 +25,27 @@ function bcol(area) {
   }
 }
 
+function conditions(car){
+  if (!app.intitution[car.tipo]){
+    return false;
+  }
+  return true;
+}
+
 
 var app = new Vue({
   el: '#app',
   data: {
+    w: 0,
+    k: 0,
     info: null,
     bcol: "red",
     shownumber: 72,
-    showU: true,
-    showCFT: true,
-    showIP: true,
+    intitution: {
+      'Universidad': true,
+      'CFT': true,
+      'IP': true
+    },
     areas: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   },
 
@@ -47,29 +58,60 @@ var app = new Vue({
       for (let k = 0; k < this.info.length; k++) {
         this.info[k]["bcolor"] = bcol(this.info[k].area);
         this.info[k]["id"] = k;
-        this.info[k]["show"] = k < this.shownumber;
+        this.info[k]["show"] = false;
       }
+      this.filterType();
     }, response => {
       // error callback
       console.log('error');
     });
   },
   methods: {
-    filterType: function () {
-      console.log("filter");
-      for (let k = 0; k < this.info.length; k++) {
-        if (this.info[k]["tipo"] == 'Universidad') {
-          this.info[k]["show"] = false;
+    filterType: function () {        
+      while (this.w < this.shownumber && this.k < this.info.length){
+        if (conditions(this.info[this.k])){
+          this.info[this.k].show = true;
+          this.w ++;
         }
+        this.k ++;
+        
       }
       this.$forceUpdate();
     },
     showMore: function () {
       this.shownumber += 72;
-      for (let k = 0; k < this.shownumber; k++) {
-        this.info[k]["show"] = true;
+      this.filterType();
+    },
+    showCFT: function(){
+      if (this.intitution['CFT']){
+        this.intitution['CFT'] = false;
+      } else {
+        this.intitution['CFT'] = true;
       }
-      this.$forceUpdate();
+    },
+    showIP: function(){
+      if (this.intitution['IP']){
+        this.intitution['IP'] = false;
+      } else {
+        this.intitution['IP'] = true;
+      }
+    },
+    showU: function(){
+      if (this.intitution['Universidad']){
+        this.intitution['Universidad'] = false;
+      } else {
+        this.intitution['Universidad'] = true;
+      }
+    },
+    update: function(){
+      this.k = 0;
+      this.w = 0;
+      this.shownumber = 72;
+      for (let k = 0; k < this.info.length; k++) {
+        this.info[k]["show"] = false;
+      }
+      this.filterType();
+
     }
   },
   computed: {

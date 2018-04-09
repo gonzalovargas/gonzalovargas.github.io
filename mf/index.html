@@ -2,8 +2,16 @@
 <html>
 
 <head>
-  <meta charset="ISO-8859-1">
-  <title>Mis cartas</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85350817-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-85350817-2');
+  </script>
+
+<title>Mis cartas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
@@ -28,10 +36,14 @@
     }
 
     @media only screen and (max-width: 600px) {
-    .box {
+      .box {
         width: calc(100% - 30px);
         height: auto;
-        }
+      }
+    }
+
+    .nombre {
+      height: auto;
     }
 
     body {
@@ -40,9 +52,24 @@
     }
 
     .button {
-      background-color: Transparent;
-      background-repeat: no-repeat;
-      border: none;
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      color: blue;
+    }
+
+    .disabledbutton {
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .active {
+      background-color: greenyellow;
     }
 
     .fade-enter-active,
@@ -62,49 +89,78 @@
 
 <body>
   <h4>Work in progress</h4>
+  <p>Visualizador de carreras con datos de
+    <a href="http://www.mifuturo.cl">mifuturo.cl</a>. Desarrollado en
+    <a href="https://vuejs.org">Vue.js</a>.
+  </p>
   <div id="app" style="margin: auto; display: block;">
+    <span>FILTROS:</span>
+    <button class="button" v-on:click="showCFT" v-bind:class="{ active: intitution['CFT']}">CFT</button>
+    <button class="button" v-on:click="showIP" v-bind:class="{ active: intitution['IP']}">IP</button>
+    <button class="button" v-on:click="showU" v-bind:class="{ active: intitution['Universidad']}">UNIVERSIDAD</button>
+    <button class="disabledbutton" disabled>Gratuidad</button>
+    <button class="disabledbutton" disabled>Acreditado</button>
+    <button class="button" v-on:click="update">ACTUALIZAR</button>
+    <br>
+    <span>ORDENAR POR:</span>
+    <button class="disabledbutton" disabled>Ingreso</button>
+    <button class="disabledbutton" disabled>Empleabilidad</button>
+    <button class="disabledbutton" disabled>Duracion</button>
+    <button class="disabledbutton" disabled>Retencion</button>
+    <br>
+    <span>AREA:</span>
+    <button class="disabledbutton" disabled style="background-color: #8dd3c7;">Administracion y Comercio</button>
+    <button class="disabledbutton" disabled style="background-color: #ffffb3;">Agropecuaria</button>
+    <button class="disabledbutton" disabled style="background-color: #bebada;">Arte y Arquitectura</button>
+    <button class="disabledbutton" disabled style="background-color: #fb8072;">Ciencias Basicas</button>
+    <button class="disabledbutton" disabled style="background-color: #80b1d3;">Ciencias Sociales</button>
+    <button class="disabledbutton" disabled style="background-color: #fdb462;">Derecho</button>
+    <button class="disabledbutton" disabled style="background-color: #b3de69;">Educacion</button>
+    <button class="disabledbutton" disabled style="background-color: #fccde5;">Humanidades</button>
+    <button class="disabledbutton" disabled style="background-color: #d9d9d9;">Salud</button>
+    <button class="disabledbutton" disabled style="background-color: #bc80bd;">Tecnologia</button>
 
-    <button v-on:click="filterType">Filter</button>
-    <button>CFT</button>
-    <button>IP</button>
-    <button>UNIVERSIDAD</button>
-    <button>Gratuidad</button>
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+
 
     <br>
     <div v-if="info">
-
-
-
-      <h1>Estas son mis cartas</h1>
-
-      <p>Visualizador de carreras con datos de
-        <a href="http://www.mifuturo.cl">mifuturo.cl</a>
-      </p>
-
 
       <template v-for="car in info">
         <transition name="fade">
           <div v-if="car.show == true">
             <div class="box" v-bind:style="{ 'background-color': car.bcolor}">
+
+              <!--
               <div style="position: absolute; top: 10px; left: 15px;">
                 <span style="font-size: 48px;">{{ car.acreditacion }}</span>
               </div>
               <div style="position: absolute; top: 14px; right: 15px; width: 160px; text-align: right; overflow: visible;">
                 {{ car.institucion }}
               </div>
+            -->
+
+              <div style="position: absolute; top: 10px; left: 15px;">
+                <span style="font-size: 24px;">{{ car.acreditacion }}</span>
+                <span style="font-size: 12px;"> anos
+                  <br>acreditacion</span>
+              </div>
+
+              <div style="position: absolute; top: 14px; right: 15px; width: 160px; text-align: right; overflow: visible;">
+                {{ car.institucion }}
+              </div>
 
               <div style="text-align: center;">
-                <h4 style="height: 40px; margin-top: 70px; overflow: visible;">
+                <h4 class="noalto" style="height: 40px; margin-top: 70px; overflow: visible;">
                   {{car.nombre}}
                 </h4>
 
                 <div style="text-align: center; width: 100%;">
                   <h3 style="font-size: 30px;"> {{car.ingreso | addpoints}}</h3>
+                  <small>{{car.empleabilidad | pointtocomma }}% empleabilidad 1er ano</small>
+                  <br>
                   <small>{{ car.retencion }} % retencion primer ano</small>
                   <br>
 
-                  <small style="color: white;">{{car.empleabilidad | pointtocomma }}% empleabilidad 1er ano</small>
                 </div>
 
 
@@ -123,18 +179,27 @@
 
       </template>
 
+      <div v-if="w == 0" style="width:100%; text-align: center;">
+        <h1>Ningun resultado cumple los criterios que buscas</h1>
+      </div>
+
+
+
 
     </div>
     <div v-else>
       <div style="width:100%; text-align: center;">
         <h1>Cargando</h1>
-
       </div>
 
     </div>
 
     <br>
-    <button v-on:click="showMore" style="display: block; font-size: 40px;">+</button>
+    <div style="width:100%; text-align: center; display: block;">
+      <br>
+      <button v-on:click="showMore" style="display: block; font-size: 40px; margin: auto;">+</button>
+
+    </div>
 
   </div>
 
