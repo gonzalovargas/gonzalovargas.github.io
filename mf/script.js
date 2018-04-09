@@ -125,7 +125,7 @@ var app = new Vue({
       if (value.length <= 6){
         return '$' + value.substring(0, 3) + '.' + value.substring(3, 6);
       } else {
-        return '$' + value.charAt(0) + '.' + value.substring(0, 3) + '.' + value.substring(3, 6);
+        return '$' + value.charAt(0) + '.' + value.substring(1, 4) + '.' + value.substring(4, 7);
       }
     },
     pointtocomma: function (value) {
