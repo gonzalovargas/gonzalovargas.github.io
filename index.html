@@ -13,14 +13,21 @@
 
 
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Gonzalo Vargas Ludwig</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
+
+
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <style type="text/css">
+            /* https://color.adobe.com/CPMCR01-color-theme-10681950/edit/?copy=true&base=2&rule=Custom&selected=2&name=Copy%20of%20CPMCR01&mode=rgb&rgbvalues=0.9019607843137255,0.5098039215686274,0.5843137254901961,0.5568627450980392,0.5215686274509804,0.5333333333333333,0.8470588235294118,0.1843137254901961,0.3058823529411765,1,1,1,0.10588235294117647,0.4196078431372549,0.5490196078431373&swatchOrder=0,1,2,3,4 */
+            body{
+                background-color: #FFFFFF;
+            }
+
+            h1{
+                color: #1B6B8C;
+            }
             .principal{
                 padding-top: 70px;
                 width: 100%;
@@ -33,24 +40,54 @@
                 padding: 10px;
             }
             html{
-            	font-weight: 600;
+                font-family: sans-serif;
             }
             a, a:visited{
-            	color: #232A36;
-            	font-weight: 400;
+            	color: #D82F4E;
+            }
+            a:hover{
+                color: #1B6B8C;
+            }
+            li {
+                font-size: 1.1em;
+                margin-top: 15px;
+            }
+            ul{
+                list-style-type: none;
+            }
+            .wip {
+                padding: 3px 5px;
+                background-color: #72A7A3;
+                color: white;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 0.8em;
+                border-radius: 3px;
             }
 
         </style>
     </head>
     <body>
         <div class="principal">
-            <h3>Gonzalo Vargas Ludwig</h3>
+            <h1>Gonzalo Vargas Ludwig</h1>
+            <p>
+                Algunas cosas que he hecho desde que aprendí a hacer páginas web.
+                
+            </p>
             <div class="proyectos">
                 <ul>
+                    <li><a href="mf/index.html" target="_blank">Visualizador de carreras</a>: Prototipo de visualizador de carreras con datos de <a href="https://mifuturo.cl" target="_blank">mifuturo.cl</a> desarrollado en Vue.js
+                        <!--<span class="wip"> EN DESARROLLO</span>-->
+                        <span style="color: #D82F4E;">(en desarrollo)</span>
+                    </li>
+                    <li><a href="https://ingenierosparachile.cl" target="_blank">Ingenieros para Chile</a>: Instalé y configuré un tema de Wordpress (The7).</li>
                     <li><a href="sdd18/index.html" target="_blank">Solidaridad 2018</a>: sitio campaña FEUC Solidaridad.</li>
                     <li><a href="http://cwcvrp.herokuapp.com" target="_blank">CWCVRP</a>: Ejemplo de Clarke&ampWright para el CVRP. Código en <a href="https://github.com/gonzalovargas/cwcvrp" target="_blank">GitHub.</a</li>
                     <li><a href="cachos/index.html" target="_blank">Cachos</a>: para jugar cachos con tu celular.</li>
+                    <!--
                     <li><a href="ts/index.html" target="_blank">Salun</a>: probando ideas para webapp de estrategias para Transantiago (no terminada).</li>
+                    -->
                     <li><a href="SDD/index.html" target="_blank">Solidaridad 2017</a>: sitio campaña FEUC Solidaridad. También de <a href="SDD/pre/index.html">precampaña</a>.</li>
                     <li><a href="CP17/index.html" target="_blank">Capilla País</a>: sitio de Capilla País 2017.</li>
                     <li><a href="http://uneed.herokuapp.com" target="_blank">UNeed</a>: Proyecto ING2030. Plataforma de favores entre vecinos.</li>
@@ -58,7 +95,5 @@
             </div>
         </div>
 
-
-        <script src="js/main.js"></script>
     </body>
 </html>
