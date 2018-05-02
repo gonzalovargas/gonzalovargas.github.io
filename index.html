@@ -22,7 +22,18 @@
         <style type="text/css">
             /* https://color.adobe.com/CPMCR01-color-theme-10681950/edit/?copy=true&base=2&rule=Custom&selected=2&name=Copy%20of%20CPMCR01&mode=rgb&rgbvalues=0.9019607843137255,0.5098039215686274,0.5843137254901961,0.5568627450980392,0.5215686274509804,0.5333333333333333,0.8470588235294118,0.1843137254901961,0.3058823529411765,1,1,1,0.10588235294117647,0.4196078431372549,0.5490196078431373&swatchOrder=0,1,2,3,4 */
             body{
-                background-color: #FFFFFF;
+                background: linear-gradient(to bottom, #e4eef0 0%, #bbcfda 100%);
+            }
+
+            html, body{
+                padding: 0;
+                margin: 0;
+            }
+            html{
+                height: 100%;
+            }
+            body{
+                min-height: 100%;
             }
 
             h1{
@@ -73,7 +84,7 @@
     <body>
         <div class="principal">
             <h1>Gonzalo Vargas Ludwig</h1>
-            <p>
+            <p style="margin: 10px;">
                 Algunas cosas que he hecho desde que aprendí a hacer páginas web.
                 
             </p>
@@ -96,6 +107,16 @@
                 </ul>
             </div>
         </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script>
+    <script>
+
+        bubbly({
+            colorStart: "#FFF",
+            colorStop: "#1B6B8C",
+            bubbleFunc: () => `hsla(0, 50%, 50%, ${Math.random() * 0.25})`
+        });
+    </script>
 
     </body>
 </html>

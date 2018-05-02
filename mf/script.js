@@ -29,6 +29,9 @@ function conditions(car){
   if (!app.intitution[car.tipo]){
     return false;
   }
+  if (!app.shownAreas[car.area]){
+    return false;
+  }
   return true;
 }
 
@@ -46,10 +49,12 @@ var app = new Vue({
       'CFT': true,
       'IP': true
     },
-    areas: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    areas: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    shownAreas: {}
   },
 
   created: function () {
+
     // `this` points to the vm instance
     this.$http.get('https://raw.githubusercontent.com/gonzalovargas/gonzalovargas.github.io/master/mf/data.json').then(response => {
 
@@ -60,6 +65,11 @@ var app = new Vue({
         this.info[k]["id"] = k;
         this.info[k]["show"] = false;
       }
+
+      for (let k = 1; k <= 10; k++) {
+        this.shownAreas[k.toString()] = true;
+      }
+      
       this.filterType();
     }, response => {
       // error callback
@@ -103,6 +113,12 @@ var app = new Vue({
         this.intitution['Universidad'] = true;
       }
     },
+    showArea: function(value){
+      console.log(this.showArea[value]);
+      this.showArea[value] = !this.showArea[value]
+      console.log(this.showArea[value]);
+    },
+
     update: function(){
       this.k = 0;
       this.w = 0;
