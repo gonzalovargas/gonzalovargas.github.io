@@ -92,31 +92,17 @@ var app = new Vue({
       this.shownumber += 72;
       this.filterType();
     },
-    showCFT: function(){
-      if (this.intitution['CFT']){
-        this.intitution['CFT'] = false;
-      } else {
-        this.intitution['CFT'] = true;
-      }
-    },
-    showIP: function(){
-      if (this.intitution['IP']){
-        this.intitution['IP'] = false;
-      } else {
-        this.intitution['IP'] = true;
-      }
-    },
-    showU: function(){
-      if (this.intitution['Universidad']){
-        this.intitution['Universidad'] = false;
-      } else {
-        this.intitution['Universidad'] = true;
-      }
+    showInst: function(value){
+      this.intitution[value] = !this.intitution[value];
+      this.update();
+
     },
     showArea: function(value){
-      console.log(this.showArea[value]);
-      this.showArea[value] = !this.showArea[value]
-      console.log(this.showArea[value]);
+
+      this.shownAreas[value] = !this.shownAreas[value];
+      this.update();
+      //this.$forceUpdate();
+
     },
 
     update: function(){

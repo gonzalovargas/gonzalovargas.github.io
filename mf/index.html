@@ -20,6 +20,7 @@
       transition: transform 1s;
     }
 
+
     .box {
       height: 322px;
       width: 200px;
@@ -77,6 +78,10 @@
       background-color: greenyellow;
     }
 
+    .notselected{
+      color: silver;
+    }
+
     .fade-enter-active,
     .fade-leave-active {
       transition: opacity .5s;
@@ -100,9 +105,9 @@
   </p>
   <div id="app" style="margin: auto; display: block;">
     <span>FILTROS:</span>
-    <button class="button" v-on:click="showCFT" v-bind:class="{ active: intitution['CFT']}">CFT</button>
-    <button class="button" v-on:click="showIP" v-bind:class="{ active: intitution['IP']}">IP</button>
-    <button class="button" v-on:click="showU" v-bind:class="{ active: intitution['Universidad']}">UNIVERSIDAD</button>
+    <button class="button" v-on:click="showInst('CFT')" v-bind:class="{ active: intitution['CFT']}">CFT</button>
+    <button class="button" v-on:click="showInst('IP')" v-bind:class="{ active: intitution['IP']}">IP</button>
+    <button class="button" v-on:click="showInst('Universidad')" v-bind:class="{ active: intitution['Universidad']}">UNIVERSIDAD</button>
     <button class="disabledbutton" disabled>Gratuidad</button>
     <button class="disabledbutton" disabled>Acreditado</button>
     <button class="button" v-on:click="update">ACTUALIZAR</button>
@@ -114,18 +119,16 @@
     <button class="disabledbutton" disabled>Retencion</button>
     <br>
     <span>AREA:</span>
-    <button class="button" @click="showArea(1)" style="background-color: #8dd3c7;">Administraci&oacute;n y Comercio</button>
-    <button class="disabledbutton" disabled style="background-color: #ffffb3;">Agropecuaria</button>
-    <button class="disabledbutton" disabled style="background-color: #bebada;">Arte y Arquitectura</button>
-    <button class="disabledbutton" disabled style="background-color: #fb8072;">Ciencias Basicas</button>
-    <button class="disabledbutton" disabled style="background-color: #80b1d3;">Ciencias Sociales</button>
-    <button class="disabledbutton" disabled style="background-color: #fdb462;">Derecho</button>
-    <button class="disabledbutton" disabled style="background-color: #b3de69;">Educacion</button>
-    <button class="disabledbutton" disabled style="background-color: #fccde5;">Humanidades</button>
-    <button class="disabledbutton" disabled style="background-color: #d9d9d9;">Salud</button>
-    <button class="disabledbutton" disabled style="background-color: #bc80bd;">Tecnologia</button>
-
-
+    <button class="button" @click="showArea('1')" v-bind:class="{ notselected: !shownAreas['1'] }" style="background-color: #8dd3c7;">Administraci&oacute;n y Comercio</button>
+    <button class="button" @click="showArea('2')" v-bind:class="{ notselected: !shownAreas['2'] }" style="background-color: #ffffb3;">Agropecuaria</button>
+    <button class="button" @click="showArea('3')" v-bind:class="{ notselected: !shownAreas['3'] }" style="background-color: #bebada;">Arte y Arquitectura</button>
+    <button class="button" @click="showArea('4')" v-bind:class="{ notselected: !shownAreas['4'] }" style="background-color: #fb8072;">Ciencias Basicas</button>
+    <button class="button" @click="showArea('5')" v-bind:class="{ notselected: !shownAreas['5'] }" style="background-color: #80b1d3;">Ciencias Sociales</button>
+    <button class="button" @click="showArea('6')" v-bind:class="{ notselected: !shownAreas['6'] }" style="background-color: #fdb462;">Derecho</button>
+    <button class="button" @click="showArea('7')" v-bind:class="{ notselected: !shownAreas['7'] }" style="background-color: #b3de69;">Educacion</button>
+    <button class="button" @click="showArea('8')" v-bind:class="{ notselected: !shownAreas['8'] }" style="background-color: #fccde5;">Humanidades</button>
+    <button class="button" @click="showArea('9')" v-bind:class="{ notselected: !shownAreas['9'] }" style="background-color: #d9d9d9;">Salud</button>
+    <button class="button" @click="showArea('10')" v-bind:class="{ notselected: !shownAreas['10'] }" style="background-color: #bc80bd;">Tecnologia</button>
 
     <br>
     <div v-if="info">
@@ -146,7 +149,7 @@
 
               <div style="position: absolute; top: 10px; left: 15px;">
                 <span style="font-size: 24px;">{{ car.acreditacion }}</span>
-                <span style="font-size: 12px;"> anos
+                <span style="font-size: 12px;"> a&ntilde;os
                   <br>acreditacion</span>
               </div>
 
@@ -165,16 +168,14 @@
                   <br>
                   <small>{{ car.retencion }} % retencion primer ano</small>
                   <br>
-
                 </div>
-
 
               </div>
 
 
               <div style="width: 100%;">
                 <div style="position: relative; text-align: center; width: 100%;">
-                  <span style="font-size: 14px;"> {{car.duracion | pointtocomma }} anos x {{car.arancel | addpoints}}</span>
+                  <span style="font-size: 14px;"> {{car.duracion | pointtocomma }} a&ntilde;os x {{car.arancel | addpoints}}</span>
                 </div>
               </div>
             </div>
