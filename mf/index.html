@@ -79,7 +79,8 @@
     }
 
     .notselected{
-      color: silver;
+      color: gray;
+      background-color: white !important;
     }
 
     .fade-enter-active,
@@ -110,13 +111,15 @@
     <button class="button" v-on:click="showInst('Universidad')" v-bind:class="{ active: intitution['Universidad']}">UNIVERSIDAD</button>
     <button class="disabledbutton" disabled>Gratuidad</button>
     <button class="disabledbutton" disabled>Acreditado</button>
+    <!--
     <button class="button" v-on:click="update">ACTUALIZAR</button>
+    -->
     <br>
     <span>ORDENAR POR:</span>
-    <button class="disabledbutton" disabled>Ingreso</button>
-    <button class="disabledbutton" disabled>Empleabilidad</button>
-    <button class="disabledbutton" disabled>Duracion</button>
-    <button class="disabledbutton" disabled>Retencion</button>
+    <button class="button" v-on:click="sortby('salary')" >Ingreso</button>
+    <button class="button" v-on:click="sortby('empleabilidad')">Empleabilidad</button>
+    <button class="button" v-on:click="sortby('duration')">Duracion</button>
+    <button class="button" v-on:click="sortby('retention')">Retencion</button>
     <br>
     <span>AREA:</span>
     <button class="button" @click="showArea('1')" v-bind:class="{ notselected: !shownAreas['1'] }" style="background-color: #8dd3c7;">Administraci&oacute;n y Comercio</button>
@@ -164,9 +167,9 @@
 
                 <div style="text-align: center; width: 100%;">
                   <h3 style="font-size: 30px;"> {{car.ingreso | addpoints}}</h3>
-                  <small>{{car.empleabilidad | pointtocomma }}% empleabilidad 1er ano</small>
+                  <small>{{car.empleabilidad | pointtocomma }}% empleabilidad 1er a&ntilde;o</small>
                   <br>
-                  <small>{{ car.retencion }} % retencion primer ano</small>
+                  <small>{{ car.retencion }} % retencion primer a&ntilde;o</small>
                   <br>
                 </div>
 

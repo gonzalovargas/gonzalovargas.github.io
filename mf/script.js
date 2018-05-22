@@ -36,6 +36,13 @@ function conditions(car){
 }
 
 
+window.onscroll = function(ev) {
+  if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 2) {
+      app.showMore();
+  }
+};
+
+
 var app = new Vue({
   el: '#app',
   data: {
@@ -104,6 +111,85 @@ var app = new Vue({
       //this.$forceUpdate();
 
     },
+    sortby: function(value){
+
+      for (let k = 0; k < this.info.length; k++) {
+        this.info[k]["show"] = false;
+      }
+      this.$forceUpdate();
+
+      function compareSalary(a, b) {
+        if (a['ingreso'] == "-"){
+          a_ = 0;
+        } else {
+          a_ = parseFloat(a['ingreso']);
+        }
+        if (b['ingreso'] == "-"){
+          b_ = 0;
+        } else {
+          b_ = parseFloat(b['ingreso']);
+        }
+        return - (a_ - b_);
+      }
+      function compareEmpl(a, b) {
+        if (a['empleabilidad'] == "-"){
+          a_ = 0;
+        } else {
+          a_ = parseFloat(a['empleabilidad']);
+        }
+        if (b['empleabilidad'] == "-"){
+          b_ = 0;
+        } else {
+          b_ = parseFloat(b['empleabilidad']);
+        }
+        return - (a_ - b_);
+      }
+      function compareDuration(a, b) {
+        if (a['duracion'] == "-"){
+          a_ = 99;
+        } else {
+          a_ = parseFloat(a['duracion']);
+        }
+        if (b['duracion'] == "-"){
+          b_ = 99;
+        } else {
+          b_ = parseFloat(b['duracion']);
+        }
+        return (a_ - b_);
+      }
+      function compareRetention(a, b) {
+        if (a['retencion'] == "-"){
+          a_ = 0;
+        } else {
+          a_ = parseFloat(a['retencion']);
+        }
+        if (b['retencion'] == "-"){
+          b_ = 0;
+        } else {
+          b_ = parseFloat(b['retencion']);
+        }
+        return - (a_ - b_);
+      }
+      switch (value) {
+        case "salary":
+          this.info.sort(compareSalary);
+          break;
+        case 'empleabilidad':
+          this.info.sort(compareEmpl);
+          break;
+        case 'duration':
+          this.info.sort(compareDuration);
+          break;
+        case 'retention':
+          this.info.sort(compareRetention);
+          break;
+      }
+      this.update();
+
+
+
+    }
+    ,
 
     update: function(){
       this.k = 0;
