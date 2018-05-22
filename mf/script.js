@@ -186,8 +186,6 @@ var app = new Vue({
       }
       this.update();
 
-
-
     }
     ,
 

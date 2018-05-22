@@ -106,9 +106,10 @@
   </p>
   <div id="app" style="margin: auto; display: block;">
     <span>FILTROS:</span>
-    <button class="button" v-on:click="showInst('CFT')" v-bind:class="{ active: intitution['CFT']}">CFT</button>
-    <button class="button" v-on:click="showInst('IP')" v-bind:class="{ active: intitution['IP']}">IP</button>
-    <button class="button" v-on:click="showInst('Universidad')" v-bind:class="{ active: intitution['Universidad']}">UNIVERSIDAD</button>
+    <br>
+    <button class="button" v-on:click="showInst('CFT')" v-bind:class="{ notselected: !intitution['CFT']}">CFT</button>
+    <button class="button" v-on:click="showInst('IP')" v-bind:class="{ notselected: !intitution['IP']}">IP</button>
+    <button class="button" v-on:click="showInst('Universidad')" v-bind:class="{ notselected: !intitution['Universidad']}">UNIVERSIDAD</button>
     <button class="disabledbutton" disabled>Gratuidad</button>
     <button class="disabledbutton" disabled>Acreditado</button>
     <!--
@@ -116,12 +117,16 @@
     -->
     <br>
     <span>ORDENAR POR:</span>
+    <br>
     <button class="button" v-on:click="sortby('salary')" >Ingreso</button>
     <button class="button" v-on:click="sortby('empleabilidad')">Empleabilidad</button>
     <button class="button" v-on:click="sortby('duration')">Duracion</button>
     <button class="button" v-on:click="sortby('retention')">Retencion</button>
     <br>
+
     <span>AREA:</span>
+    <div style="overflow: auto; white-space: nowrap;">
+    
     <button class="button" @click="showArea('1')" v-bind:class="{ notselected: !shownAreas['1'] }" style="background-color: #8dd3c7;">Administraci&oacute;n y Comercio</button>
     <button class="button" @click="showArea('2')" v-bind:class="{ notselected: !shownAreas['2'] }" style="background-color: #ffffb3;">Agropecuaria</button>
     <button class="button" @click="showArea('3')" v-bind:class="{ notselected: !shownAreas['3'] }" style="background-color: #bebada;">Arte y Arquitectura</button>
@@ -132,7 +137,7 @@
     <button class="button" @click="showArea('8')" v-bind:class="{ notselected: !shownAreas['8'] }" style="background-color: #fccde5;">Humanidades</button>
     <button class="button" @click="showArea('9')" v-bind:class="{ notselected: !shownAreas['9'] }" style="background-color: #d9d9d9;">Salud</button>
     <button class="button" @click="showArea('10')" v-bind:class="{ notselected: !shownAreas['10'] }" style="background-color: #bc80bd;">Tecnologia</button>
-
+  </div>
     <br>
     <div v-if="info">
 
