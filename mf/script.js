@@ -9,17 +9,17 @@ function bcol(area) {
     case 4:
       return '#fb8072';
     case 5:
-      return '#80b1d3';
+      return '#d9d9d9';
     case 6:
       return '#fdb462'
     case 7:
       return '#b3de69'
     case 8:
-      return '#fccde5';
-    case 9:
-      return '#d9d9d9';
-    case 10:
       return '#bc80bd';
+    case 9:
+      return '#80b1d3';
+    case 10:
+      return '#fccde5';
     default:
       return 'white';
   }
