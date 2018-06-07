@@ -48,7 +48,7 @@
         height: auto;
       }
     }
-    @media only screen and (min-width: 440px) {
+    @media only screen and (min-width: 601px) {
       .inst {
         height: 38px;
       }
@@ -57,6 +57,17 @@
       .separador{
         height: 30px;
       }
+      .ingreso{
+        width: inherit;
+        position: absolute;
+        bottom: 140px;
+      }
+      .stats{
+        position: absolute;
+        bottom: 18px;
+      }
+      
+
     }
 
     .acr{
@@ -219,7 +230,7 @@
                     <h2 style="font-size: 18px; font-weight: 400;">{{car.nombre}}</h2>
                 </div>
 
-                <div style="text-align: center; width: inherit; position: absolute; bottom: 140px;">
+                <div class="ingreso" style="text-align: center;">
                     <h2 style="font-weight:500;"> {{car.ingreso | addpoints}}</h2>
                     <p style="margin-top: -20px; font-size: 10px;">
                         ingreso promedio
@@ -230,7 +241,7 @@
 
 
 
-                <div style="text-align: center; width: inherit; position: absolute; bottom: 18px;">
+                <div class="stats" style="text-align: center; width: inherit;">
                     <hr>
 
                     <button class="acr">
