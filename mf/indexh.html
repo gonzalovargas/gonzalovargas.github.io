@@ -16,9 +16,6 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-
-
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
   <style>
     .flip-list-move {
@@ -28,15 +25,15 @@
 
     .box {
       background-color: white;
-      height: 322px;
-      width: 202px;
+      height: 202px;
+      width: 322px;
       float: left;
       border-style: solid;
       border-width: 0px;
       margin: 5px;
-      padding: 12px;
+      padding: 0px;
       box-shadow: 2px 2px 4px silver;
-      border-radius: 3px;
+      border-radius: 0px;
       position: relative;
       transition: transform .2s;
       /* Animation */
@@ -50,21 +47,11 @@
     }
     @media only screen and (min-width: 440px) {
       .inst {
-        height: 38px;
       }
       .carrera{
       }
       .separador{
-        height: 30px;
       }
-    }
-
-    .acr{
-      background-color: transparent;
-      border: none;
-      border-width: 1px;
-      border-radius: 3px;
-      font-size: 12px;
     }
 
     /* .box:hover {
@@ -182,78 +169,49 @@
       <template v-for="car in info">
         <transition name="fade">
           <div v-if="car.show == true">
-            <div class="box" v-bind:style="{ 'background-color': car.bcolor}">
+            <div class="box">
 
-                <button class="acr">
-                    <i class="fas fa-university"></i>
-                    {{ car.tipo }}
-                </button>
-
-                <button class="acr">
-                  <i class="fas fa-check"></i>
-                  {{ car.acreditacion }} a&ntilde;os
-                </button>
-                
-
-              <div style="position: absolute; top: 12px; right: 12px;">
-                  <i class="far fa-star"></i>
-
-              </div>
-
-
+              <div style="width: 100%; padding: -10px;" v-bind:style="{ 'background-color': car.bcolor}">
 
               <div class="inst">
 
-                  <h2 style="margin-top: 4px; font-size: 16px;">
-                      {{ car.institucion }}
-                      
+                  <h2 style="margin-top: 4px; font-size: 16px; width: 240px;">
+                      {{ car.institucion }} <span style="font-size: 20px; background-color: white; padding: 5px;" >{{ car.acreditacion }} &#9745;</span>
                   </h2>
+
+
+              </div>
+
+                <div style="position: absolute; top: 4px; right: 4px;">
+                  <small style="font-size: 14px; color: darkblue; text-align: right;"> <span style="font-size: 20px;">&#9733;</span></small>
+                </div>
+
+              </div>
+              
 
                   
 
 
-              </div>                  
-
-
-                <div style="text-align: center;" class="carrera">
+                <div style="text-align: left;" class="carrera">
                     <h2 style="font-size: 18px; font-weight: 400;">{{car.nombre}}</h2>
                 </div>
 
-                <div style="text-align: center; width: inherit; position: absolute; bottom: 140px;">
-                    <h2 style="font-weight:500;"> {{car.ingreso | addpoints}}</h2>
-                    <p style="margin-top: -20px; font-size: 10px;">
-                        ingreso promedio
-                    </p> 
+                <div style="text-align: left;">
+                    <h2 style="font-weight:700;"> {{car.ingreso | addpoints}}</h2>
                 </div>
 
                 <div class="separador"></div>
 
+                <hr>
 
 
-                <div style="text-align: center; width: inherit; position: absolute; bottom: 18px;">
-                    <hr>
+                <div style="text-align: center;">
+                    <small>{{car.empleabilidad | pointtocomma }}% empleabilidad 1er a&ntilde;o</small>
+                    <br>
+                    <small>{{ car.retencion | pointtocomma }}% retenci&oacute;n primer a&ntilde;o</small>
+                    <br>
+                    <span style="font-size: 14px;"> {{car.duracion | pointtocomma }} a&ntilde;os x {{car.arancel | addpoints}}</span>
 
-                    <button class="acr">
-                        <i class="fas fa-briefcase"></i>
-
-
-                        {{car.empleabilidad | pointtocomma }}% empleabilidad
-                    </button>
-                    <button class="acr">
-                        <i class="fas fa-rocket"></i>
-
-
-                        {{ car.retencion | pointtocomma }}% retenci&oacute;n
-                    </button>
-                    <button class="acr">
-                        <i class="far fa-clock"></i>
-                        {{car.duracion | pointtocomma }} a&ntilde;os duraci&oacute;n
-                    </button>
-                    <button class="acr">
-                        <i class="fas fa-coins"></i>
-                        {{car.arancel | addpoints}}
-                        costo anual
-                    </button>
                 </div>
 
                 
