@@ -163,7 +163,8 @@
     </div>
     <div style="position: fixed; top: 0;  z-index: 10; background-color: rgba(255, 255, 255, 0.85); width: inherit; max-width: 510px; padding: 20px;" v-bind:style="{ left: leftd}">
       <br>
-      <i class="fas fa-search" style="margin-left: 60px;"></i> <input type="text" style="padding: 5px; font-size: 16px;" placeholder="Buscar">
+      <i class="fas fa-search" style="margin-left: 60px;"></i> <input @change.lazy="changetext" type="text" style="padding: 5px; font-size: 16px;" placeholder="Buscar">
+      <button @click="changetext"><i class="fas fa-search"></i></button>
       <br>
       <button class="button" v-on:click="showInst('CFT')" v-bind:class="{ notselected: !intitution['CFT']}">CFT</button>
       <button class="button" v-on:click="showInst('IP')" v-bind:class="{ notselected: !intitution['IP']}">IP</button>

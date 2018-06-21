@@ -32,6 +32,16 @@ function conditions(car){
   if (!app.shownAreas[car.area]){
     return false;
   }
+  if (app.stringfilter != ''){
+    var words_list = app.stringfilter.toLowerCase().split(" ");
+    console.log(words_list);
+    for (const word of words_list) {
+      full_string = car.nombre + ' ' + car.institucion
+      if (!full_string.toLowerCase().includes(word)){
+        return false;
+      }
+    }
+  }
   return true;
 }
 
@@ -59,7 +69,8 @@ var app = new Vue({
     areas: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     shownAreas: {},
     filtered_info: [],
-    leftd: '-620px'
+    leftd: '-620px',
+    stringfilter: ''
     },
 
   created: function () {
@@ -201,7 +212,6 @@ var app = new Vue({
         this.info[k]["show"] = false;
       }
       this.filterType();
-
     },
     filterbar: function(){
       if (this.leftd == '0px'){
@@ -209,6 +219,10 @@ var app = new Vue({
       } else {
         this.leftd = '0px'
       }
+    },
+    changetext: function(value){
+      this.stringfilter = value.target.value;
+      this.update();
     }
   },
   computed: {
