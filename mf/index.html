@@ -102,10 +102,11 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
+      margin-top: 2px;
     }
 
     .button:hover {
-      color: blue;
+      color: rgb(61, 34, 177);;
     }
 
     .disabledbutton {
@@ -146,15 +147,18 @@
 </head>
 
 <body>
-  <h4>Work in progress</h4>
-  <p>Visualizador de carreras con datos de
-    <a href="http://www.mifuturo.cl">mifuturo.cl</a>. Desarrollado en
-    <a href="https://vuejs.org">Vue.js</a>.
-  </p>
+  <div style="text-align: center;">
+    <br>
+      <p>Visualizador de carreras con datos de
+        <a href="http://www.mifuturo.cl">mifuturo.cl</a>. Desarrollado en
+        <a href="https://vuejs.org">Vue.js</a>.
+      </p>
+  </div>
+  
 
 
 
-  <div id="app" style="margin: auto; display: block; position: relative;">
+  <div id="app">
     <div @click="filterbar" style="z-index: 20; position: fixed; top: 10px; left: 10px;">
       <span class="fa-stack fa-2x">
         <i class="fas fa-circle fa-stack-2x" style="color: rgb(61, 34, 177);"></i>
@@ -164,13 +168,16 @@
     <div style="position: fixed; top: 0;  z-index: 10; background-color: rgba(255, 255, 255, 0.85); width: inherit; max-width: 510px; padding: 20px;" v-bind:style="{ left: leftd}">
       <br>
       <i class="fas fa-search" style="margin-left: 60px;"></i> <input @change.lazy="changetext" type="text" style="padding: 5px; font-size: 16px;" placeholder="Buscar">
-      <button @click="changetext"><i class="fas fa-search"></i></button>
+      <button @click="changetext" class="button"><i class="fas fa-search"></i></button>
       <br>
       <button class="button" v-on:click="showInst('CFT')" v-bind:class="{ notselected: !intitution['CFT']}">CFT</button>
       <button class="button" v-on:click="showInst('IP')" v-bind:class="{ notselected: !intitution['IP']}">IP</button>
       <button class="button" v-on:click="showInst('Universidad')" v-bind:class="{ notselected: !intitution['Universidad']}">UNIVERSIDAD</button>
       <button class="disabledbutton" disabled>Gratuidad</button>
       <button class="disabledbutton" disabled>Acreditado</button>
+      <button class="disabledbutton" disabled><i class="far fa-star"></i></button>
+
+      
       <!--
       <button class="button" v-on:click="update">ACTUALIZAR</button>
       -->
@@ -179,12 +186,11 @@
       <br>
       <button class="button" v-on:click="sortby('salary')" >Ingreso</button>
       <button class="button" v-on:click="sortby('empleabilidad')">Empleabilidad</button>
-      <button class="button" v-on:click="sortby('duration')">Duracion</button>
-      <button class="button" v-on:click="sortby('retention')">Retencion</button>
+      <button class="button" v-on:click="sortby('duration')">Duraci&oacute;n</button>
+      <button class="button" v-on:click="sortby('retention')">Retenci&oacute;n</button>
       <br>
 
       <span>AREA:</span>
-      <!--style="overflow: auto; white-space: nowrap;"-->
       <div >
         <button class="button" @click="showArea('1')" v-bind:class="{ notselected: !shownAreas['1'] }" style="background-color: #8dd3c7;">Administraci&oacute;n y Comercio</button>
         <button class="button" @click="showArea('2')" v-bind:class="{ notselected: !shownAreas['2'] }" style="background-color: #ffffb3;">Agropecuaria</button>
@@ -202,14 +208,12 @@
 
 
     <br>
-    <div v-if="info">
-
+    <div v-if="info" style="display: block; margin: auto;">
 
       <template v-for="car in filtered_info">
         <transition name="fade">
           <div v-if="car.show == true">
             <div class="box" v-bind:style="{ 'background-color': car.bcolor}">
-
                 <button class="acr">
                     <i class="fas fa-university"></i>
                     {{ car.tipo }}
@@ -220,7 +224,6 @@
                 </button>
               <div style="position: absolute; top: 12px; right: 12px;">
                   <i class="far fa-star"></i>
-
               </div>
 
               <div class="inst">
@@ -228,8 +231,6 @@
                       {{ car.institucion }}
                   </h2>
               </div>                  
-
-
                 <div style="text-align: center;" class="carrera" style="width: 100%;">
                     <h2 style="font-size: 18px; font-weight: 400;">{{car.nombre}}</h2>
                 </div>
@@ -263,11 +264,6 @@
                         costo anual
                     </button>
                 </div>
-
-                
-
-
-
             </div>
           </div>
 
@@ -278,7 +274,7 @@
 
 
       <div v-if="w == 0" style="width:100%; text-align: center;">
-        <h1>Ningun resultado cumple los criterios que buscas</h1>
+        <h1>Ning&uacute;n resultado cumple los criterios que buscas</h1>
       </div>
 
 

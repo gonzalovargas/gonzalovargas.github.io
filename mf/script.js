@@ -34,7 +34,6 @@ function conditions(car){
   }
   if (app.stringfilter != ''){
     var words_list = app.stringfilter.toLowerCase().split(" ");
-    console.log(words_list);
     for (const word of words_list) {
       full_string = car.nombre + ' ' + car.institucion
       if (!full_string.toLowerCase().includes(word)){
