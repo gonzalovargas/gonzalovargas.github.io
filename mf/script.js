@@ -57,8 +57,9 @@ var app = new Vue({
       'IP': true
     },
     areas: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    shownAreas: {}
-  },
+    shownAreas: {},
+    filtered_info: []
+    },
 
   created: function () {
 
@@ -84,7 +85,7 @@ var app = new Vue({
     });
   },
   methods: {
-    filterType: function () {        
+    filterType: function () {
       while (this.w < this.shownumber && this.k < this.info.length){
         if (conditions(this.info[this.k])){
           this.info[this.k].show = true;
@@ -93,7 +94,8 @@ var app = new Vue({
         this.k ++;
         
       }
-      this.$forceUpdate();
+      this.filtered_info = this.info.filter(car => car.show)
+      //this.$forceUpdate();
     },
     showMore: function () {
       this.shownumber += 72;
@@ -116,7 +118,9 @@ var app = new Vue({
       for (let k = 0; k < this.info.length; k++) {
         this.info[k]["show"] = false;
       }
-      this.$forceUpdate();
+      this.shownumber = 72;
+      this.filtered_info = this.info.filter(car => car.show)
+      //this.$forceUpdate();
 
       function compareSalary(a, b) {
         if (a['ingreso'] == "-"){
@@ -188,7 +192,6 @@ var app = new Vue({
 
     }
     ,
-
     update: function(){
       this.k = 0;
       this.w = 0;
@@ -201,7 +204,7 @@ var app = new Vue({
     }
   },
   computed: {
-
+    
   },
   filters: {
     addpoints: function (value) {

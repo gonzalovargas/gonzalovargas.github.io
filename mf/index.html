@@ -190,7 +190,7 @@
     <div v-if="info">
 
 
-      <template v-for="car in info">
+      <template v-for="car in filtered_info">
         <transition name="fade">
           <div v-if="car.show == true">
             <div class="box" v-bind:style="{ 'background-color': car.bcolor}">
@@ -199,19 +199,14 @@
                     <i class="fas fa-university"></i>
                     {{ car.tipo }}
                 </button>
-
                 <button class="acr">
                   <i class="fas fa-check"></i>
                   {{ car.acreditacion }} a&ntilde;os
                 </button>
-                
-
               <div style="position: absolute; top: 12px; right: 12px;">
                   <i class="far fa-star"></i>
 
               </div>
-
-
 
               <div class="inst">
 
