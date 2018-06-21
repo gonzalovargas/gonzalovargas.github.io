@@ -59,7 +59,7 @@ var app = new Vue({
     areas: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     shownAreas: {},
     filtered_info: [],
-    leftd: '0px'
+    leftd: '-620px'
     },
 
   created: function () {
@@ -204,7 +204,6 @@ var app = new Vue({
 
     },
     filterbar: function(){
-      console.log(this.leftd)
       if (this.leftd == '0px'){
         this.leftd = '-620px'
       } else {
