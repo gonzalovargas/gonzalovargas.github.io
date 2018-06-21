@@ -58,7 +58,8 @@ var app = new Vue({
     },
     areas: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     shownAreas: {},
-    filtered_info: []
+    filtered_info: [],
+    leftd: '0px'
     },
 
   created: function () {
@@ -119,7 +120,7 @@ var app = new Vue({
         this.info[k]["show"] = false;
       }
       this.shownumber = 72;
-      this.filtered_info = this.info.filter(car => car.show)
+      this.filtered_info = [];
       //this.$forceUpdate();
 
       function compareSalary(a, b) {
@@ -201,6 +202,14 @@ var app = new Vue({
       }
       this.filterType();
 
+    },
+    filterbar: function(){
+      console.log(this.leftd)
+      if (this.leftd == '0px'){
+        this.leftd = '-620px'
+      } else {
+        this.leftd = '0px'
+      }
     }
   },
   computed: {

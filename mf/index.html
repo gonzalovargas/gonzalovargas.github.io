@@ -151,41 +151,59 @@
     <a href="http://www.mifuturo.cl">mifuturo.cl</a>. Desarrollado en
     <a href="https://vuejs.org">Vue.js</a>.
   </p>
-  <div id="app" style="margin: auto; display: block;">
-    <span>FILTROS:</span>
-    <br>
-    <button class="button" v-on:click="showInst('CFT')" v-bind:class="{ notselected: !intitution['CFT']}">CFT</button>
-    <button class="button" v-on:click="showInst('IP')" v-bind:class="{ notselected: !intitution['IP']}">IP</button>
-    <button class="button" v-on:click="showInst('Universidad')" v-bind:class="{ notselected: !intitution['Universidad']}">UNIVERSIDAD</button>
-    <button class="disabledbutton" disabled>Gratuidad</button>
-    <button class="disabledbutton" disabled>Acreditado</button>
-    <!--
-    <button class="button" v-on:click="update">ACTUALIZAR</button>
-    -->
-    <br>
-    <span>ORDENAR POR:</span>
-    <br>
-    <button class="button" v-on:click="sortby('salary')" >Ingreso</button>
-    <button class="button" v-on:click="sortby('empleabilidad')">Empleabilidad</button>
-    <button class="button" v-on:click="sortby('duration')">Duracion</button>
-    <button class="button" v-on:click="sortby('retention')">Retencion</button>
-    <br>
 
-    <span>AREA:</span>
-    <!--style="overflow: auto; white-space: nowrap;"-->
-    <div >
-    
-    <button class="button" @click="showArea('1')" v-bind:class="{ notselected: !shownAreas['1'] }" style="background-color: #8dd3c7;">Administraci&oacute;n y Comercio</button>
-    <button class="button" @click="showArea('2')" v-bind:class="{ notselected: !shownAreas['2'] }" style="background-color: #ffffb3;">Agropecuaria</button>
-    <button class="button" @click="showArea('3')" v-bind:class="{ notselected: !shownAreas['3'] }" style="background-color: #bebada;">Arte y Arquitectura</button>
-    <button class="button" @click="showArea('4')" v-bind:class="{ notselected: !shownAreas['4'] }" style="background-color: #fb8072;">Ciencias Basicas</button>
-    <button class="button" @click="showArea('5')" v-bind:class="{ notselected: !shownAreas['5'] }" style="background-color: #d9d9d9;">Ciencias Sociales</button>
-    <button class="button" @click="showArea('6')" v-bind:class="{ notselected: !shownAreas['6'] }" style="background-color: #fdb462;">Derecho</button>
-    <button class="button" @click="showArea('7')" v-bind:class="{ notselected: !shownAreas['7'] }" style="background-color: #b3de69;">Educacion</button>
-    <button class="button" @click="showArea('8')" v-bind:class="{ notselected: !shownAreas['8'] }" style="background-color: #bc80bd;">Humanidades</button>
-    <button class="button" @click="showArea('9')" v-bind:class="{ notselected: !shownAreas['9'] }" style="background-color: #80b1d3;">Salud</button>
-    <button class="button" @click="showArea('10')" v-bind:class="{ notselected: !shownAreas['10'] }" style="background-color: #fccde5;">Tecnologia</button>
-  </div>
+
+
+  
+
+
+
+  <div id="app" style="margin: auto; display: block; position: relative;">
+    <div @click="filterbar" style="z-index: 20; position: fixed; top: 10px; left: 10px;">
+      <span class="fa-stack fa-2x">
+        <i class="fas fa-circle fa-stack-2x" style="color: rgb(61, 34, 177);"></i>
+        <i class="fas fa-filter fa-stack-1x fa-inverse"></i>
+      </span>
+    </div>
+    <div style="position: fixed; top: 0;  z-index: 10; background-color: rgba(255, 255, 255, 0.85); width: inherit; max-width: 510px; padding: 20px;" v-bind:style="{ left: leftd}">
+      <br>
+      <i class="fas fa-search" style="margin-left: 60px;"></i> <input type="text" style="padding: 5px; font-size: 16px;" placeholder="Buscar">
+      <br>
+      <button class="button" v-on:click="showInst('CFT')" v-bind:class="{ notselected: !intitution['CFT']}">CFT</button>
+      <button class="button" v-on:click="showInst('IP')" v-bind:class="{ notselected: !intitution['IP']}">IP</button>
+      <button class="button" v-on:click="showInst('Universidad')" v-bind:class="{ notselected: !intitution['Universidad']}">UNIVERSIDAD</button>
+      <button class="disabledbutton" disabled>Gratuidad</button>
+      <button class="disabledbutton" disabled>Acreditado</button>
+      <!--
+      <button class="button" v-on:click="update">ACTUALIZAR</button>
+      -->
+      <br>
+      <span>ORDENAR POR:</span>
+      <br>
+      <button class="button" v-on:click="sortby('salary')" >Ingreso</button>
+      <button class="button" v-on:click="sortby('empleabilidad')">Empleabilidad</button>
+      <button class="button" v-on:click="sortby('duration')">Duracion</button>
+      <button class="button" v-on:click="sortby('retention')">Retencion</button>
+      <br>
+
+      <span>AREA:</span>
+      <!--style="overflow: auto; white-space: nowrap;"-->
+      <div >
+        <button class="button" @click="showArea('1')" v-bind:class="{ notselected: !shownAreas['1'] }" style="background-color: #8dd3c7;">Administraci&oacute;n y Comercio</button>
+        <button class="button" @click="showArea('2')" v-bind:class="{ notselected: !shownAreas['2'] }" style="background-color: #ffffb3;">Agropecuaria</button>
+        <button class="button" @click="showArea('3')" v-bind:class="{ notselected: !shownAreas['3'] }" style="background-color: #bebada;">Arte y Arquitectura</button>
+        <button class="button" @click="showArea('4')" v-bind:class="{ notselected: !shownAreas['4'] }" style="background-color: #fb8072;">Ciencias Basicas</button>
+        <button class="button" @click="showArea('5')" v-bind:class="{ notselected: !shownAreas['5'] }" style="background-color: #d9d9d9;">Ciencias Sociales</button>
+        <button class="button" @click="showArea('6')" v-bind:class="{ notselected: !shownAreas['6'] }" style="background-color: #fdb462;">Derecho</button>
+        <button class="button" @click="showArea('7')" v-bind:class="{ notselected: !shownAreas['7'] }" style="background-color: #b3de69;">Educacion</button>
+        <button class="button" @click="showArea('8')" v-bind:class="{ notselected: !shownAreas['8'] }" style="background-color: #bc80bd;">Humanidades</button>
+        <button class="button" @click="showArea('9')" v-bind:class="{ notselected: !shownAreas['9'] }" style="background-color: #80b1d3;">Salud</button>
+        <button class="button" @click="showArea('10')" v-bind:class="{ notselected: !shownAreas['10'] }" style="background-color: #fccde5;">Tecnologia</button>
+      </div>
+    </div>
+
+
+
     <br>
     <div v-if="info">
 
@@ -209,19 +227,13 @@
               </div>
 
               <div class="inst">
-
                   <h2 style="margin-top: 4px; font-size: 16px;">
                       {{ car.institucion }}
-                      
                   </h2>
-
-                  
-
-
               </div>                  
 
 
-                <div style="text-align: center;" class="carrera">
+                <div style="text-align: center;" class="carrera" style="width: 100%;">
                     <h2 style="font-size: 18px; font-weight: 400;">{{car.nombre}}</h2>
                 </div>
 
@@ -234,21 +246,14 @@
 
                 <div class="separador"></div>
 
-
-
-                <div class="stats" style="text-align: center; width: inherit;">
+                <div class="stats" style="text-align: center; width: 100%;">
                     <hr>
-
                     <button class="acr">
                         <i class="fas fa-briefcase"></i>
-
-
                         {{car.empleabilidad | pointtocomma }}% empleabilidad
                     </button>
                     <button class="acr">
                         <i class="fas fa-rocket"></i>
-
-
                         {{ car.retencion | pointtocomma }}% retenci&oacute;n
                     </button>
                     <button class="acr">
