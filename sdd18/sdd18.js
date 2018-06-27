@@ -4,7 +4,7 @@
 $("#mostrarvideos").click(function(){
     $("#masvideos").show();
     $("#mostrarvideos").hide();
-    ga('send', {hitType: 'event',eventCategory: 'Videos',eventAction: 'click',eventLabel: 'Mostrar más videos'});
+    //ga('send', {hitType: 'event',eventCategory: 'Videos',eventAction: 'click',eventLabel: 'Mostrar más videos'});
 });
 
 
@@ -106,7 +106,7 @@ $('#MT').on('show.bs.modal', function (event) {
     modal.find('#fb-link').attr('href','https://www.facebook.com/Jeliça-Sapunar-Territorial-SocialesTeolog%C3%ADa-Solidaridad-247616402429484/')
     modal.find('#link-programa').attr('href','http://www.solidaridad.cl/CT/SDD%20-%20SOCIALES%20-%20Programa%20Jeli%20Sapunar.pdf')
   }
-  ga('send', {hitType: 'event',eventCategory: 'Modal',eventAction: 'click',eventLabel: 'Territorial ' + territorial});
+  //ga('send', {hitType: 'event',eventCategory: 'Modal',eventAction: 'click',eventLabel: 'Territorial ' + territorial});
 });
 
 
@@ -142,7 +142,7 @@ $('#ModalTerritorial').on('show.bs.modal', function (event) {
     modal.find('#texto-territorial').text('Estudiante de tercer año de Agronomía, Consejero Territorial de la Facultad de Agronomía e Ingeniería Forestal durante el 2017.')
     modal.find('#fb-link-t').attr('href','https://www.facebook.com/territorialsddfaif')
   };
-  ga('send', {hitType: 'event',eventCategory: 'Modal',eventAction: 'click',eventLabel: 'Territorial ' + territorial});
+  //ga('send', {hitType: 'event',eventCategory: 'Modal',eventAction: 'click',eventLabel: 'Territorial ' + territorial});
 });
 
 $('#ModalFeuc').on('show.bs.modal', function (event) {
@@ -176,18 +176,18 @@ $('#ModalFeuc').on('show.bs.modal', function (event) {
     modal.find('#foto-feuc').attr('src','lista/cristobal.jpg')
     modal.find('#texto-feuc').text('Segundo Secretario Ejecutivo. Estudiante de tercero año de la Facultad de Agronomía e Ingeniería Forestal. Consejero Territorial de Agronomía e Ingeniería Forestal el año 2017.')
   }
-  ga('send', {hitType: 'event',eventCategory: 'Modal',eventAction: 'click',eventLabel: 'Lista ' + territorial});
+  //ga('send', {hitType: 'event',eventCategory: 'Modal',eventAction: 'click',eventLabel: 'Lista ' + territorial});
 });
 
 
 $('#PorEllaModal').on('show.bs.modal', function (event) {
-  ga('send', {hitType: 'event',eventCategory: 'Modal',eventAction: 'click',eventLabel: 'Por Ella'});
+  //ga('send', {hitType: 'event',eventCategory: 'Modal',eventAction: 'click',eventLabel: 'Por Ella'});
 });
 $('#LaVillaModal').on('show.bs.modal', function (event) {
-  ga('send', {hitType: 'event',eventCategory: 'Modal',eventAction: 'click',eventLabel: 'La Villa'});
+  //ga('send', {hitType: 'event',eventCategory: 'Modal',eventAction: 'click',eventLabel: 'La Villa'});
 });
 $('#transparencia').on('show.bs.modal', function (event) {
-  ga('send', {hitType: 'event',eventCategory: 'Modal',eventAction: 'click',eventLabel: 'Transparencia'});
+  //ga('send', {hitType: 'event',eventCategory: 'Modal',eventAction: 'click',eventLabel: 'Transparencia'});
 });
 
 
