@@ -1,122 +1,390 @@
 <!doctype html>
-<html>
-    <head>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85350817-2"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-85350817-2');
-      </script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 
-        <meta charset="utf-8">
-        <title>Gonzalo Vargas Ludwig</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <title>Gonzalo Vargas</title>
+    <style>
+        html, body{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
 
-        <style type="text/css">
-            /* https://color.adobe.com/CPMCR01-color-theme-10681950/edit/?copy=true&base=2&rule=Custom&selected=2&name=Copy%20of%20CPMCR01&mode=rgb&rgbvalues=0.9019607843137255,0.5098039215686274,0.5843137254901961,0.5568627450980392,0.5215686274509804,0.5333333333333333,0.8470588235294118,0.1843137254901961,0.3058823529411765,1,1,1,0.10588235294117647,0.4196078431372549,0.5490196078431373&swatchOrder=0,1,2,3,4 */
-            body{
-                background: linear-gradient(to bottom, #e4eef0 0%, #bbcfda 100%);
-            }
+        h1, h2{
+            /* font-family: Helvetica, sans-serif; */
+            background: -webkit-linear-gradient(rgb(22, 68, 196), rgb(95, 216, 216));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h1{
+            font-weight: 700;
+        }
+        h2{
+            margin-left: 10px;
+        }
+        h3{
+            font-weight: 700;
+            color: white;
+            /* background: -webkit-linear-gradient(rgb(95, 216, 216), rgb(22, 68, 196));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; */
 
-            html, body{
-                padding: 0;
-                margin: 0;
-            }
-            html{
-                height: 100%;
-            }
-            body{
-                min-height: 100%;
-            }
-
-            h1{
-                color: #1B6B8C;
-            }
-            .principal{
-                padding-top: 70px;
+        }
+        .top{
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+        }
+        .box{
+            width: 25vw;
+            height: 200px;
+            float: left;
+            /* border: solid;
+            border-width: 1px; */
+            position: relative;
+            padding: 0;
+            margin: 0;
+            box-shadow: 0px 10px 10px #888888;
+        }
+        .inbox{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            /* background: -webkit-linear-gradient(rgba(255, 255, 255, 0.6), rgba(43, 177, 255, 0.658)); */
+            /* color: white; */
+            
+        }
+        .ininbox{
+            position: absolute;
+            top: -16px;
+            left: 0;
+            height: 200px;
+            width: inherit;
+            z-index: -10;
+            filter: brightness(1.2) contrast(60%);
+            background-size: cover;
+        }
+        .box:hover .ininbox{
+            filter: blur(3px) brightness(1.2) contrast(100%);
+            color: red;
+        }
+        .box:hover .inbox{
+            background: transparent;
+        }
+        p{
+            color: white;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .proj h3{
+            text-transform: uppercase;
+            padding-top: 20px;
+            text-shadow: 1px 1px 0px rgb(22, 68, 196),
+                         2px 2px 1px rgb(95, 216, 216);
+        }
+        body{
+            background: rgb(68, 68, 68);
+        }
+        button{
+            background: white;
+            border:solid;
+            padding: 3px;
+            border-radius: 3px;
+            border-width: 1px;
+        }
+        li{
+            display: inline-block;
+            padding: 4px;
+        }
+        li span{
+            background: -webkit-linear-gradient(rgb(22, 68, 196), rgb(95, 216, 216));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            padding: 0;
+        }
+        .proj{
+            width: 25%;
+            height: 200px;
+            text-align: center;
+            padding: 10px;
+            float: left;
+            overflow: hidden;
+            /* border: solid;
+            border-color: #000;
+            border-width: 1px; */
+            
+        }
+        .inproj{
+            width: 100%;
+            height: 100%;
+            border: solid;
+            border-color: #000;
+            border-width: 1px;
+            background-size: cover;
+            background-position: 50% 10%;
+            /* background-color: silver; */
+            box-shadow: 0px 10px 10px #161616;
+            position: relative;
+            background: -webkit-linear-gradient(rgb(94, 94, 94), rgb(68, 68, 68));
+        }
+        .proj h3{
+            padding-top: 20px;
+            font-size: 1.5em;
+        }
+        .proj:hover{
+            padding: 0;
+        }
+        .proj:hover .inproj{
+            padding: 10px;
+        }
+        .links{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        .links a{
+            padding: 10px;
+            color: rgb(108, 255, 255)
+        }
+        @media only screen and (max-width: 650px) {
+            .proj{
                 width: 100%;
-                max-width: 700px;
-                margin: auto;
-                text-align: center;
+                height: auto;
             }
-            .proyectos{
-                text-align: left;
-                padding: 10px;
+        }
+        @media only screen and (min-width: 651px) and (max-width: 800px){
+            .proj{
+                width: 50%;
             }
-            html{
-                font-family: sans-serif;
+        }
+        @media only screen and (min-width: 801px) and (max-width: 1200px){
+            .proj{
+                width: 33.33%;
             }
-            a, a:visited{
-            	color: #D82F4E;
-            }
-            a:hover{
-                color: #1B6B8C;
-            }
-            li {
-                font-size: 1.1em;
-                margin-top: 15px;
-                margin-left: 0;
-            }
-            ul{
-                list-style-type: none;
-                padding-left: 10px;
-            }
-            .wip {
-                padding: 3px 5px;
-                background-color: #72A7A3;
-                color: white;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 0.8em;
-                border-radius: 3px;
-            }
+        }
 
-        </style>
-    </head>
-    <body>
-        <div class="principal">
-            <h1>Gonzalo Vargas Ludwig</h1>
-            <p style="margin: 10px;">
-                Algunas cosas que he hecho desde que aprendí a hacer páginas web.
-                
+    </style>
+
+  </head>
+  <body>
+      <div id="mp" style="display: block;">
+
+      
+      <div style="background: -webkit-linear-gradient(rgb(94, 94, 94), rgb(68, 68, 68));">
+        <div class="top">
+            <img src="img/gonzalo.png" alt="" style="border-radius: 50%; max-width: 200px; width: 90%;">
+            <h1>Gonzalo Vargas</h1>
+            <p>
+                A recopilation of some projects that I have been doing since I learned to code. Welcome!
             </p>
-            <div class="proyectos">
-                <ul>
-                    <li><a href="https://decobambu.cl" target="_blank">Deco Bambú</a>: Ecommerece básico que usa plantilla de Wordpress y WooCommerce. Próximamente aceptará webpay plus.</li>
-                    <li><a href="mf/index.html" target="_blank">Visualizador de carreras</a>: Prototipo de visualizador de carreras con datos de <a href="https://mifuturo.cl" target="_blank">mifuturo.cl</a> desarrollado en Vue.js
-                        <!--<span class="wip"> EN DESARROLLO</span>-->
-                        <span style="color: #D82F4E;">(en desarrollo)</span>
-                    </li>
-                    <li><a href="https://ingenierosparachile.cl" target="_blank">Ingenieros para Chile</a>: Instalé y configuré un tema de Wordpress (The7).</li>
-                    <li><a href="sdd18/index.html" target="_blank">Solidaridad 2018</a>: sitio campaña FEUC Solidaridad.</li>
-                    <li><a href="http://cwcvrp.herokuapp.com" target="_blank">CWCVRP</a>: Ejemplo de Clarke&ampWright para el CVRP. Código en <a href="https://github.com/gonzalovargas/cwcvrp" target="_blank">GitHub.</a</li>
-                    <li><a href="cachos/index.html" target="_blank">Cachos</a>: para jugar cachos con tus amigos.</li>
-                    <!--
-                    <li><a href="ts/index.html" target="_blank">Salun</a>: probando ideas para webapp de estrategias para Transantiago (no terminada).</li>
-                    -->
-                    <li><a href="SDD/index.html" target="_blank">Solidaridad 2017</a>: sitio campaña FEUC Solidaridad. También de <a href="SDD/pre/index.html">precampaña</a>.</li>
-                    <li><a href="CP17/index.html" target="_blank">Capilla País</a>: sitio de Capilla País 2017.</li>
-                    <li><a href="http://uneed.herokuapp.com" target="_blank">UNeed</a>: Proyecto ING2030. Plataforma de favores entre vecinos.</li>
-                </ul>
+            <ul style="color: white; font-size: 20px; list-style-type: none; width: 100%; padding-left: 0;">
+                <li>
+                    <a href="https://github.com/gonzalovargas" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span>
+                            gonzalovargas
+                        </span>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="">
+                        <i class="far fa-envelope"></i>
+                        <span>
+                        </span>
+                    </a>
+                </li> -->
+                <!-- <li>
+                    <a href="">
+                        <i class="fab fa-medium-m"></i>
+                        <span>
+                            gonzalovargasludwig
+                        </span>
+                    </a>
+                </li> -->
+                <!-- <li>
+                    <a href="">
+                        <i class="fas fa-file-alt"></i>
+                        <span>
+                            Resumé
+                        </span>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="https://www.linkedin.com/in/gonzalovargasludwig/" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        <span>
+                            gonzalovargasludwig
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="max-width: 1600px; width: 100%; padding: 10px; margin: 0 auto; position: relative;">
+        <div v-for="proj in projects" class="proj" v-bind:class="{ selected: proj.selected }" @click="proj.selected = !proj.selected">
+            <div class="inproj">
+                <!-- v-bind:style="{ 'background-image': 'url(' + proj.img + ')' }" -->
+                <h3>{{ proj.name }}</h3>
+                <p style="padding-left: 10px; padding-right: 10px;">{{ proj.description }}</p>
+
+                <div class="links">
+                    <a class="button" v-if="proj.link" :href="proj.link" target="_blank">
+                        <i class="fas fa-link"></i>
+                        link
+                    </a>
+                    <a class="button" v-if="proj.link2" :href="proj.link2" target="_blank">
+                            <i class="fas fa-link"></i>
+                            link 2
+                        </a>
+                    <a class="button" v-if="proj.gh" :href="proj.gh" target="_blank">
+                        <i class="fab fa-github"></i>
+                        Github
+                    </a>
+                    <a class="button" v-if="proj.pdf" :href="proj.pdf" target="_blank">
+                        <i class="far fa-file-pdf"></i>
+                        PDF
+                    </a>
+                    <a v-if="proj.soon" isabled style="color: silver">Soon</a>
+                    
+                </div>
             </div>
         </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script>
+    <!-- <div  class="container" style="display: block; background-color: red; height: 200px; position: relative;">
+
+    </div> -->
+</div>
+
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script>
+        var app = new Vue({
+            el: '#mp',
+            data: {
+                projects: [
+                    {
+                    name: 'Math 243',
+                    description: 'Duoling-style app to learn math!',
+                    link: 'https://math-243.firebaseapp.com',
+                    img: 'img/243.png',
+                    selected: false
+                    },
+                    {
+                    name: 'Visualizador de Carreras',
+                    description: 'Chilean careers visualizator',
+                    link: 'https://gonzalovargas.github.io/mf/index.html',
+                    img: 'img/243.png',
+                    gh: '11',
+                    selected: false
+                    },
+                    {
+                    name: 'Uneed',
+                    description: 'Neighborhood network',
+                    link: 'http://uneed.herokuapp.com/',
+                    selected: false
+                    },
+                    {
+                    name: 'GT Buses',
+                    description: '-',
+                    selected: false,
+                    gh: 'https://github.com/cabreraalex/gt-bus-analysis'
+                    },
+                    {
+                    name: 'CTM',
+                    description: 'Simple implementation of the Cell Transmission Model in Python',
+                    gh: 'https://github.com/gonzalovargas/pythonctm',
+                    selected: false
+                    },
+                    {
+                    name: 'Deco Bambú',
+                    description: 'Ecommerce: Wordpress and WooCommerce (Flatsome)',
+                    link: 'https://www.decobambu.cl/',
+                    selected: false
+                    },
+                    {
+                    name: 'Ingenieros para Chile',
+                    description: 'Set up Wordpress using The7 theme',
+                    link: 'https://ingenierosparachile.cl',
+                    selected: false
+                    },
+                    {
+                    name: 'Capilla País',
+                    description: 'Vanilla HTML website. 3000 unique users, 500 registrations for community service',
+                    link: 'https://gonzalovargas.github.io/CP17/index.html',
+                    selected: false
+                    },
+                    {
+                    name: 'Solidaridad 2018',
+                    description: 'FEUC election website',
+                    link: 'https://gonzalovargas.github.io/sdd18/index.html',
+                    selected: false
+                    },
+                    {
+                    name: 'Solidaridad 2017',
+                    description: 'FEUC election website',
+                    link: 'https://gonzalovargas.github.io/SDD/index.html',
+                    selected: false,
+                    link2: 'https://gonzalovargas.github.io/SDD/pre/index.html'
+                    },
+                    {
+                    name: 'Cachos',
+                    description: 'Virtual dices to play Cachos',
+                    link: 'https://gonzalovargas.github.io/cachos/index.html',
+                    gh: '',
+                    selected: false
+                    },
+                    {
+                    name: 'ML Gatech',
+                    description: 'soon: Multiple ML techniques',
+                    link: '',
+                    selected: false,
+                    soon: true
+                    },{
+                    name: 'Data & Visual Analytics Gatech',
+                    description: 'D3 examples, hw2 CX4242',
+                    selected: false,
+                    soon: true
+                    },{
+                    name: '"Learning geography with VR"',
+                    description: 'undergraduated research publication',
+                    selected: false,
+                    pdf: '234'
+                    }
+                ]
+            }
+        })
+        // setTimeout( function(){
+        //     console.log(app.$el.clientHeight);
+        //     document.getElementById('mp').setAttribute("style", "height:"+app.$el.clientHeight + "px;");
+        //     console.log("height:"+app.$el.clientHeight + "px;");
+        // }, 2000);
+        
 
-        bubbly({
-            colorStart: "#FFF",
-            colorStop: "#1B6B8C",
-            bubbleFunc: () => `hsla(0, 50%, 50%, ${Math.random() * 0.25})`
-        });
+
+    
+    
     </script>
 
-    </body>
+
+
+                    
+
+
+</body>
 </html>
