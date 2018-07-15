@@ -20,7 +20,7 @@
 
         h1, h2{
             /* font-family: Helvetica, sans-serif; */
-            background: -webkit-linear-gradient(rgb(22, 68, 196), rgb(95, 216, 216));
+            background: -webkit-linear-gradient( bottom right, rgb(22, 68, 196), rgb(95, 216, 216));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -46,44 +46,7 @@
             width: 100%;
             padding: 20px;
         }
-        .box{
-            width: 25vw;
-            height: 200px;
-            float: left;
-            /* border: solid;
-            border-width: 1px; */
-            position: relative;
-            padding: 0;
-            margin: 0;
-            box-shadow: 0px 10px 10px #888888;
-        }
-        .inbox{
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            /* background: -webkit-linear-gradient(rgba(255, 255, 255, 0.6), rgba(43, 177, 255, 0.658)); */
-            /* color: white; */
-            
-        }
-        .ininbox{
-            position: absolute;
-            top: -16px;
-            left: 0;
-            height: 200px;
-            width: inherit;
-            z-index: -10;
-            filter: brightness(1.2) contrast(60%);
-            background-size: cover;
-        }
-        .box:hover .ininbox{
-            filter: blur(3px) brightness(1.2) contrast(100%);
-            color: red;
-        }
-        .box:hover .inbox{
-            background: transparent;
-        }
+        
         p{
             color: white;
             text-shadow: 2px 2px 4px #000;
@@ -91,8 +54,32 @@
         .proj h3{
             text-transform: uppercase;
             padding-top: 20px;
-            text-shadow: 1px 1px 0px rgb(22, 68, 196),
-                         2px 2px 1px rgb(95, 216, 216);
+            text-shadow: 1px 1px 0 #000,
+                        -1px 1px 0 #000,
+                        1px -1px 0 #000,
+                        -1px -1px 0 #000,
+                        0px 1px 0 #000,
+                        0px -1px 0 #000,
+                        -1px 0px 0 #000,
+                        1px 0px 0 #000,
+                        2px 2px 0 #000,
+                        -2px 2px 0 #000,
+                        2px -2px 0 #000,
+                        -2px -2px 0 #000,
+                        0px 2px 0 #000,
+                        0px -2px 0 #000,
+                        -2px 0px 0 #000,
+                        2px 0px 0 #000,
+                        1px 2px 0 #000,
+                        -1px 2px 0 #000,
+                        1px -2px 0 #000,
+                        -1px -2px 0 #000,
+                        2px 1px 0 #000,
+                        -2px 1px 0 #000,
+                        2px -1px 0 #000,
+                        -2px -1px 0 #000;
+            /* text-shadow: 1px 1px 0px rgb(22, 68, 196),
+                         2px 2px 1px rgb(95, 216, 216); */
         }
         body{
             background: rgb(68, 68, 68);
@@ -109,7 +96,7 @@
             padding: 4px;
         }
         li span{
-            background: -webkit-linear-gradient(rgb(22, 68, 196), rgb(95, 216, 216));
+            background: -webkit-linear-gradient( bottom right, rgb(29, 146, 241), rgb(95, 216, 216));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: 0;
@@ -140,6 +127,7 @@
             /* background-color: silver; */
             box-shadow: 0px 10px 10px #161616;
             position: relative;
+            /* background: rgb(10, 212, 219); */
             background: -webkit-linear-gradient(rgb(94, 94, 94), rgb(68, 68, 68));
             transition: 0.2s all ease;
         }
@@ -245,6 +233,12 @@
     <div style="max-width: 1600px; width: 100%; padding: 10px; margin: 0 auto; position: relative;">
         <div v-for="proj in projects" class="proj" v-bind:class="{ selected: proj.selected }">
             <div class="inproj">
+
+                <!-- <div style="width: 50px; height: 50px; border: solid; border-radius: 25px; background-color: rgb(10, 212, 219); position: absolute; top: 75px; right:-25px;">
+                </div>
+                <div style="width: 50px; height: 50px; border-radius: 25px; background-color: rgb(10, 212, 219); position: absolute; top: 75px; left:-25px;">
+                </div> -->
+
                 <!-- v-bind:style="{ 'background-image': 'url(' + proj.img + ')' }" -->
                 <h3>{{ proj.name }}</h3>
                 <p style="padding-left: 10px; padding-right: 10px;">{{ proj.description }}</p>
@@ -272,11 +266,6 @@
             </div>
         </div>
     </div>
-    
-
-    <!-- <div  class="container" style="display: block; background-color: red; height: 200px; position: relative;">
-
-    </div> -->
 </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script>
@@ -289,7 +278,8 @@
                     description: 'Duolingo-style app to learn math!',
                     link: 'https://math-243.firebaseapp.com',
                     img: 'img/243.png',
-                    selected: false
+                    selected: false,
+                    color: ''
                     },
                     {
                     name: 'Visualizador de Carreras',
